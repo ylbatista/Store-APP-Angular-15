@@ -1,0 +1,96 @@
+<h3 style="margin: 10px; text-align: center;">LISTA DE USUARIOS REGISTRADOS</h3>
+<mat-form-field >
+  <mat-label>Search...</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Product Name, Ex. Description, Ex. Cant" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef> UserName </th>
+        <td mat-cell *matCellDef="let user"> {{user.userName}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let user"> {{user.nombre}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="apellido">
+        <th mat-header-cell *matHeaderCellDef> Apellido </th>
+        <td mat-cell *matCellDef="let user"> {{user.apellido}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="direccion">
+        <th mat-header-cell *matHeaderCellDef> Direccion </th>
+        <td mat-cell *matCellDef="let user"> {{user.direccion}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="rol">
+        <th mat-header-cell *matHeaderCellDef> Rol </th>
+        <td mat-cell *matCellDef="let user"> {{user.rol}} </td>
+      </ng-container>
+
+
+       <!-- actions Column-->
+       <div class="">
+            <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>ACTIONS</th>
+            <td mat-cell *matCellDef="let user">
+
+
+
+            <!-- BUTTONS -->
+
+            <button
+                mat-icon-button
+                style="color: rgb(85, 87, 224);"
+                (click)="editUser(user)"
+                matTooltip="Editar Usuario">
+                <mat-icon>edit</mat-icon>
+            </button>
+
+            <button
+                mat-icon-button
+                style="color: rgb(245, 60, 60)"
+                (click)="deleteUser(user.id)"
+                matTooltip ="Eliminar Usuario">
+                <mat-icon>delete</mat-icon>
+            </button>
+
+            </td>
+            </ng-container>
+       </div>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements">
+    </mat-paginator>
+
+  </div>
+
+
+  <br>
+  <div class="button-container">
+    <button mat-raised-button color="primary" class="center-button" routerLink="/admin/dashboard">Go Dashboard</button>
+    <!-- <button mat-raised-button color="primary" class="center-button" routerLink="/auth/register">Crear usuario</button> -->
+    <button mat-raised-button color="primary" class="center-button">Button 3</button>
+  </div>

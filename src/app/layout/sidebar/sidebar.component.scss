@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+    height: 100%;
+
+  }
+
+
+  .example-sidenav {
+    padding: 5px;
+  }
+
+  .drawer-blue {
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    height: auto;
+  }
+
+.full-width-input{
+    width: 100%;
+    margin-bottom: 7px;
+  }
+
+
+.sidebar-button {
+  display: block; /* Asegura que el botón ocupa todo el ancho disponible */
+  width: 100%; /* Hace que el botón ocupe todo el ancho del contenedor */
+  text-align: left; /* Alinea el contenido del botón a la izquierda */
+}

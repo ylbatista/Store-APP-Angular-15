@@ -1,0 +1,125 @@
+
+<div class="button-container">
+
+	<button
+    mat-raised-button
+    color="primary" class="center-button"
+    routerLink="/admin/dashboard">Back to dashboard
+  </button>
+  <!-- <button mat-raised-button color="primary" class="center-button">Button 2</button>
+  <button mat-raised-button color="primary" class="center-button">Button 3</button> -->
+</div>
+
+<h2 style="margin: 10px; text-align: center">AGREGAR NUEVOS PRODUCTOS</h2>
+
+<mat-card class="all">
+	<mat-card-content class="center-content">
+
+		<form [formGroup]="productForm" (ngSubmit)="productData()">
+
+			<mat-grid-list cols="4" rowHeight="70px">
+
+				<mat-grid-tile colspan="1" rowspan="1">
+					<mat-form-field class="full-width-input" appearance="fill">
+						<mat-label>Product Name</mat-label>
+						<input matInput
+							autocomplete="off"
+							formControlName="nombre"
+							placeholder="Enter Product Name"
+							name="nombre"
+							type="text"
+							id="nombre" required>
+					</mat-form-field>
+				</mat-grid-tile>
+
+				<mat-grid-tile colspan="3" rowspan="6">
+          <div class="image-container">
+            <!-- Campo de entrada de tipo archivo oculto -->
+            <input name="img" type="file" accept="image/*" #fileInput style="display: none" (change)="capturarFile($event)">
+
+            <!-- Vista previa de la imagen -->
+            <div class="image-preview">
+              <img [src]="previewImageUrl" style="max-width: auto;">
+            </div>
+
+            <mat-icon
+              class="style-and-size"
+              color="primary"
+              (click)="fileInput.click()"
+              matTooltip="AGREGUE FOTO DE PRODUCTO">add_a_photo
+            </mat-icon>
+
+          </div>
+        </mat-grid-tile>
+
+				<mat-grid-tile colspan="1" rowspan="1">
+					<mat-form-field class="full-width-input" appearance="fill">
+						<mat-label>Product Type</mat-label>
+						<input  matInput
+								autocomplete="off"
+								formControlName="tipo"
+								placeholder="Enter Product Type"
+								name="tipo"
+								type="text"
+								id="tipo" required>
+					</mat-form-field>
+				</mat-grid-tile>
+
+				<mat-grid-tile colspan="1" rowspan="1">
+					<mat-form-field class="full-width-input" appearance="fill">
+						<mat-label>Price</mat-label>
+						<input  matInput
+								formControlName="precio"
+								placeholder="Enter your Price"
+								name="precio"
+								type="number"
+								id="precio" required>
+					</mat-form-field>
+				</mat-grid-tile>
+
+				<mat-grid-tile colspan="1" rowspan="1">
+					<mat-form-field class="full-width-input" appearance="fill">
+						<mat-label>Cant</mat-label>
+						<input  matInput
+								formControlName="cantidad"
+								placeholder="Enter your cant."
+								name="precio"
+								type="number"
+								id="precio" required>
+					</mat-form-field>
+				</mat-grid-tile>
+
+				<mat-grid-tile colspan="1" rowspan="1">
+					<mat-form-field class="full-width-input" appearance="fill">
+						<mat-label>Descripcion</mat-label>
+						<textarea   matInput
+									autocomplete="off"
+									formControlName="descripcion"
+									placeholder="Enter Description"
+									name="description"
+									type="text"
+									id="descripcion" required>
+						</textarea>
+					</mat-form-field>
+				</mat-grid-tile>
+
+				<mat-grid-tile colspan="1" rowspan="1">
+
+          <!-- Boton para agregar el producto del form -->
+					<button mat-raised-button
+            [disabled]="productForm.invalid"
+            class="full-width-input"
+            type="submit"
+            color="primary"
+            style="text-align: left">Agregar Producto
+          </button>
+
+				</mat-grid-tile>
+
+			</mat-grid-list>
+
+		</form>
+	</mat-card-content>
+</mat-card>
+
+

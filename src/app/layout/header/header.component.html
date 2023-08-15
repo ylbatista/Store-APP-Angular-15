@@ -1,0 +1,84 @@
+<!-- <p>header works!</p> -->
+<mat-toolbar color="primary">
+
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button> -->
+
+    <span>App Store Name</span>
+    <span class="example-spacer"></span>
+
+    <button
+      mat-icon-button
+      routerLink="/home"
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+      matTooltip="HOME">
+        <mat-icon>home</mat-icon>
+    </button>
+
+    <button
+      mat-icon-button
+      routerLink="/auth/login"
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+      matTooltip="LOGIN">
+        <mat-icon>login</mat-icon>
+    </button>
+
+    <button
+      isLogged
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+      matTooltip="USER SETTINGS">
+        <mat-icon>person</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+
+      <button mat-menu-item routerLink="pages/show-user-orders">
+        <mat-icon>format_list_numbered_rtl</mat-icon>
+        <span>See all My orders</span>
+      </button>
+
+      <button
+        mat-menu-item
+        (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Log out</span>
+      </button>
+
+    </mat-menu>
+
+    <span>
+      <app-badge
+      routerLink="/pages/buy-car"
+      matTooltip="CARRITO DE COMPRAS"></app-badge>
+      <!-- <small><app-total-import></app-total-import></small> -->
+    </span>
+
+  <!-- <button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5"> <img src="assets/images/users/1.jpg" alt="user" class="profile-pic"> </button>
+    <mat-menu #profile="matMenu" class="mymegamenu">
+        <button mat-menu-item>
+            <mat-icon>settings</mat-icon> Settings </button>
+        <button mat-menu-item>
+            <mat-icon>account_box</mat-icon> Profile </button>
+        <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon> Disable notifications </button>
+        <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon> Sign Out </button>
+    </mat-menu> -->
+
+  </mat-toolbar>

@@ -1,0 +1,44 @@
+
+
+
+  <p style="text-align: center;">month-sales-grafic works!</p>
+  <mat-card-header>
+    <mat-card-title>Gráfica de Barras</mat-card-title> <br>
+    <mat-card-subtitle>Representación de la cantidad de ventas y ordenes por mes </mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img matCardImage src="Card wide image source"> -->
+  <mat-card-content>
+
+    <!-- <div class="center">
+      <strong>
+        Total Importe Año: {{anioDinero | currency}}
+        Total Ordenes Año:{{anioOrden}}
+      </strong>
+    </div> -->
+
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [dataLabels]="chartOptions.dataLabels"
+      [plotOptions]="chartOptions.plotOptions"
+      [yaxis]="chartOptions.yaxis"
+      [fill]="chartOptions.fill"
+      [stroke]="chartOptions.stroke"
+      [tooltip]="chartOptions.tooltip"
+      [xaxis]="chartOptions.xaxis"
+    ></apx-chart>
+
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident, earum recusandae porro, aut architecto ea sed minus illum animi, totam voluptas nam magni. Laudantium, magni autem aliquid distinctio commodi odio!</p>
+
+  </mat-card-content>
+
+
+
+
+
+
+
+
+
+
+

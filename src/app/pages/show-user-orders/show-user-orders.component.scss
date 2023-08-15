@@ -1,0 +1,14 @@
+table {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.center-button {
+  margin: 0 10px; /* Añade un margen horizontal para separar los botones */
+}

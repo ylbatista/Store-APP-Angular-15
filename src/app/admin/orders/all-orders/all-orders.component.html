@@ -1,0 +1,120 @@
+<!-- <p>all-order-list works!!!!</p> -->
+<div class="container">
+  <!-- FILTRO y panel de botones -->
+  <div class="filter-container">
+    <!-- <p>FILTRAR FECHA: {{selectedYear}} / {{selectedMonth}} </p> -->
+    <!-- Años -->
+    <mat-form-field class="form-size" matTooltip="Seleccione el Año deseado">
+      <mat-label class="small-label">Filtrar por año </mat-label>
+      <mat-select class="small-select" [(ngModel)]="selectedYear" (selectionChange)="applyFilters()">
+        <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Meses -->
+    <mat-form-field class="form-size" matTooltip="Seleccione el Mes deseado">
+      <mat-label class="small-label">Filtrar por mes</mat-label>
+      <mat-select class="small-select" [(ngModel)]="selectedMonth" (selectionChange)="applyFilters()">
+        <mat-option *ngFor="let month of months" [value]="month">{{ month }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Usuarios -->
+    <mat-form-field class="form-size" matTooltip="Seleccione el Usuario">
+      <mat-label class="small-label">Filtrar por Nombre</mat-label>
+      <mat-select class="small-select" [(ngModel)]="selectedUser" (selectionChange)="applyFilters()">
+        <mat-option *ngFor="let selectedUser of users" [value]="selectedUser"> {{ selectedUser }} </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+  </div>
+
+  <div class="button-container">
+
+    <button mat-raised-button color="primary" class="center-button" routerLink="/admin/dashboard">Go Dashboard</button>
+    <!-- <button mat-raised-button color="primary" class="center-button">Button 2</button>
+    <button mat-raised-button color="primary" class="center-button">Button 3</button> -->
+  </div>
+
+</div>
+
+<h3 style="margin: 10px; text-align: center;">LISTA DE TODAS LAS ORDENES</h3>
+
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+
+
+  <ng-container  matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ column }}
+    </th>
+
+    <td mat-cell *matCellDef="let allOrders">
+      <span *ngIf="column === 'Id Orden'">{{allOrders['numero']}}</span>
+      <span *ngIf="column === 'Creada por'">{{allOrders['nombre']}}</span>
+      <span *ngIf="column === 'Fecha de Creación'">{{ allOrders['fechaCreacion'] |  date:'fullDate' }}</span>
+      <span *ngIf="column === 'Total'">{{ allOrders['total'] | currency }}</span>
+      <span *ngIf="column === 'Acciones'">
+        <button mat-icon-button
+          matTooltip="Borrar Orden"
+          (click)="deleteOrder(allOrders.numero); $event.stopPropagation()"
+          color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </span>
+      <span *ngIf="column !== 'Fecha de Creación' && column !== 'Total'">{{ allOrders[column.toLowerCase()] }}</span>
+    </td>
+
+  </ng-container>
+
+  <ng-container matColumnDef="expand">
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions"></th>
+    <td mat-cell *matCellDef="let allOrders">
+      <button
+        mat-icon-button aria-label="expand row"
+        matTooltip="Despliegue para ver datos de Orden">
+        <mat-icon *ngIf="expandedElement !== allOrders">keyboard_arrow_down</mat-icon>
+        <mat-icon *ngIf="expandedElement === allOrders">keyboard_arrow_up</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let allOrders" [attr.colspan]="columnsToDisplayWithExpand.length">
+
+      <div class="example-element-detail"
+        [@detailExpand]="allOrders == expandedElement ? 'expanded' : 'collapsed'">
+
+        <div class="example-element-diagram" *ngFor="let detalle of allOrders.detalles">
+
+          <div class="image-container" matTooltip="Total por producto {{detalle.total | currency}}">
+            <img class="card-image" src="{{detalle.producto?.img}}" alt="product img" height="65px">
+          </div>
+
+          <div class="details-container">
+            <strong>
+              <small>
+                <div>Name: {{detalle.producto.nombre}}</div>
+                <div>Cant/C: {{detalle.cantidad}}</div>
+                <div>Price/U: {{detalle.producto.precio | currency}}</div>
+              </small>
+            </strong>
+          </div>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[10, 20, 50, 100]" aria-label="Select page of users"></mat-paginator>
+<br>
+
+

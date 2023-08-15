@@ -1,0 +1,113 @@
+<p>register works!</p>
+<div class="center-content">
+    <mat-card class="mat-card">
+      <br>
+      <h3><strong>USER-REGISTER</strong></h3>
+
+      <form [formGroup]="registerForm" (ngSubmit)="sendUser()">
+
+
+        <!--USER-->
+          <mat-form-field class="full-width-input" appearance="fill">
+            <mat-label>Username</mat-label>
+            <input
+              matInput
+              formControlName="userName"
+              placeholder="Enter your Email"
+              name="userName"
+              type="email">
+          </mat-form-field>
+
+        <!--PASWORD-->
+          <mat-form-field class="full-width-input">
+            <mat-label>Enter your password</mat-label>
+            <input
+            matInput [type]="hide ? 'password' : 'text'"
+            formControlName="pwd"
+            name="pwd"
+            type="password">
+            <button mat-icon-button matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+
+          <!--CONFIRM PASWORD-->
+          <mat-form-field class="full-width-input">
+            <mat-label>Repeat your Password</mat-label>
+            <input
+            matInput [type]="hide ? 'password' : 'text'"
+            formControlName="pwd2"
+            name="pwd2"
+            type="password">
+            <button mat-icon-button matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+
+
+
+          <!--NOMBRE-->
+          <mat-form-field class="full-width-input" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              formControlName="nombre"
+              placeholder="Enter your Name"
+              name="nombre"
+              type="text">
+          </mat-form-field>
+
+
+          <!--APELLIDO-->
+          <mat-form-field class="full-width-input" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input
+              matInput
+              formControlName="apellido"
+              placeholder="Enter your LastName"
+              name="apellido"
+              type="text">
+          </mat-form-field>
+
+
+          <!--DIRECCION-->
+          <mat-form-field class="full-width-input" appearance="fill">
+            <mat-label>Address</mat-label>
+            <textarea
+              matInput
+              formControlName="direccion"
+              placeholder="Enter your Address"
+              name="direccion"
+              type="text"></textarea>
+          </mat-form-field>
+
+              <!--***********VALIDACIONES**********-->
+            <!-- <div>
+              <div>
+                <p *ngIf="invalidCamp('!userName')" style="color: red;"><b>El nombre es obligatorio</b></p>
+              </div>
+
+            </div> -->
+
+
+
+              <!--BUTTONs-->
+            <div class="button-container">
+
+              <button class="center-button" mat-raised-button type="submit" color="warn" [disabled]="registerForm.invalid">Apply Register</button>
+            </div>
+
+            <br>
+            <!--sINGUP-->
+
+
+      </form>
+      <button class="center-button" mat-raised-button color="primary" routerLink="/auth/login">Log in...</button><br>
+    </mat-card>
+  </div>

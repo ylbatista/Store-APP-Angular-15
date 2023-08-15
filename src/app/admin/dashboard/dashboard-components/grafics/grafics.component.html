@@ -1,0 +1,33 @@
+
+
+  <p style="text-align: center;">Grafics!</p>
+
+  <mat-card-header>
+    <mat-card-title>Gráfica de Donas</mat-card-title>
+    <mat-card-subtitle>Resumen de ventas y ordenes por Año </mat-card-subtitle>
+
+  </mat-card-header>
+  <!-- <img matCardImage src="Card wide image source"> -->
+  <mat-card-content>
+
+    <div id="chart">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [plotOptions]="chartOptions.plotOptions"
+        [labels]="chartOptions.labels"
+      ></apx-chart>
+    </div>
+
+    <!-- <div>
+      <strong>
+        <p style="color: rgb(12, 93, 185)"> Total Ordenes Año: {{anioOrden}} </p>
+        <p style="color: rgb(12, 93, 185)">Total Importe Año: {{anioDinero | currency}}</p>
+      </strong>
+    </div> -->
+
+  </mat-card-content>
+
+
+
+

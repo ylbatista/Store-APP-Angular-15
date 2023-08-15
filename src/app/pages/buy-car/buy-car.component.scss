@@ -1,0 +1,56 @@
+  .margin-center {
+    padding: 5px;
+
+
+  }
+
+  .center {
+    width: auto;
+
+    text-align: center;
+  }
+
+  table {
+    width: auto;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  thead th {
+    background-color: #f5f5f5;
+  }
+
+
+  /* input al lado del boton validar compra */
+
+
+  .side, button {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 24px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  .center-button {
+    margin: 0 10px; /* Añade un margen horizontal para separar los botones */
+  }
+
+  ///para el input de selectCant
+  .small-input {
+    width: 60px; /* Ancho del input en píxeles*/
+    font-size: 14px; /* Tamaño de fuente*/
+    text-align: center; /* Centrar el texto*/
+  }
+
+

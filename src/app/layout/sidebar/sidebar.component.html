@@ -1,47 +1,33 @@
 <!-- <p>sidebar works!</p> -->
-<mat-drawer-container class="container" autosize>
+<mat-drawer-container class="side-nav" autosize>
 
-  <mat-drawer #drawer class="example-sidenav drawer-blue" color="primary" mode="over">
-    <p>Admin</p>
+  <mat-drawer #drawer color="primary" mode="over">
 
-    <div>
-      <img src="https://www.palermo.edu/Archivos_content/2018/economicas/octubre/buena-redaccion/640.jpg" alt="image"
-      width="300px">
+    <div class="user">
+      <img src="../../../assets/img/user.jpg" class="user-img" width="100px">
+      <div>
+          <h5 class="h4-admin"><small><strong>ADMINISTRADOR</strong> </small> </h5>
+          <p class="p-email">ylbatista93@gmail.com</p>
+      </div>
+      <img src="../../../assets/img/white-star.png" class="star-img" width="50px">
     </div>
 
-    <!-- <input matInput placeholder="Buscar..."> -->
-    <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p> -->
-    <a mat-list-item>
-      <button mat-raised-button
-        color="primary"
-        routerLink="/admin/dashboard"
-        class="full-width-input"><mat-icon>dashboard</mat-icon>DASHBOARD
-      </button><br>
+    <div>
+      <img class="image" src="https://www.palermo.edu/Archivos_content/2018/economicas/octubre/buena-redaccion/640.jpg" alt="image"
+      width="250px">
+    </div>
 
-      <button mat-raised-button
-        color="primary"
-        routerLink="/admin/add-product"
-        class="full-width-input"><mat-icon>new_label</mat-icon>Agregar Porducto
-      </button><br>
+    <div class="example-menu" cdkMenu>
+      <button class="example-menu-item" cdkMenuItem routerLink="/admin/dashboard"> <mat-icon>dashboard</mat-icon> DASHBOARD</button>
+      <button class="example-menu-item" cdkMenuItem routerLink="/admin/add-product"> <mat-icon>new_label</mat-icon>AGREGAR PRODUCTO</button>
+      <button class="example-menu-item" cdkMenuItem routerLink="/admin/full-list"> <mat-icon>list</mat-icon> LISTA PRODUCTOS</button>
+      <button class="example-menu-item" cdkMenuItem routerLink="/admin/users-list"> <mat-icon>account_circle</mat-icon> LISTA USUARIOS</button>
+      <button class="example-menu-item" cdkMenuItem routerLink="/admin/all-orders"> <mat-icon>reorder</mat-icon> LISTA ORDENES</button>
 
-      <button mat-raised-button
-        color="primary"
-        routerLink="/admin/full-list"
-        class="full-width-input"> <mat-icon>list</mat-icon> Lista Productos
-      </button><br>
-
-      <button mat-raised-button
-        color="primary"
-        routerLink="/admin/users-list"
-        class="full-width-input"> <mat-icon>account_circle</mat-icon> Lista Usuarios
-      </button><br>
-
-      <button mat-raised-button
-        color="primary"
-        routerLink="/admin/all-orders"
-        class="full-width-input"> <mat-icon>reorder</mat-icon> Lista Ordenes
-      </button><br>
-    </a>
+      <div>
+        <button class="example-menu-item" cdkMenuItem> <mat-icon>logout</mat-icon> LOG OUT</button>
+      </div>
+    </div>
 
   </mat-drawer>
 
@@ -54,3 +40,6 @@
   <router-outlet></router-outlet>
 
 </mat-drawer-container>
+
+
+

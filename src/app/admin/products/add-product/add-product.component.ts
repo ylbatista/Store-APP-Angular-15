@@ -71,7 +71,7 @@ export class AddProductComponent {
         //reinicio los productos introducidos al form para que se limpie una vez envida la data
         this.productForm.reset();
 
-        this.snackBar.open('El producto fue creado con exito', '',{
+        this.snackBar.open('PRODUCTO CREADO EXITOSAMENTE', '',{
           duration: 3000,
           horizontalPosition: 'center',
         });
@@ -80,7 +80,7 @@ export class AddProductComponent {
       error:(e) => {
         console.warn('Error al enviar el form', e);
 
-        this.snackBar.open('El producto no se ha creado', '',{
+        this.snackBar.open('ERROR AL CREAR EL PRODUCTO', '',{
           duration: 5000,
           horizontalPosition: 'center',
         });

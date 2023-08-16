@@ -70,7 +70,7 @@ export class DetailProductComponent {
       },
 
       error:(e) => {
-        console.warn('Error al actualizar el product', e);
+        console.warn('ERROR AL ACTUALIZAR EL PRODUCTO', e);
       },
 
       complete: () => {

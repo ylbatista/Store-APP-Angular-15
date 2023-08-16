@@ -11,13 +11,6 @@ export interface DataTable {
 
 }
 
-// export interface Anio {
-
-//   totalDinero: number,
-//   totalOrd: number,
-
-// }
-
 export interface Lista {
   mes: number,
   cantOrdenes: number,

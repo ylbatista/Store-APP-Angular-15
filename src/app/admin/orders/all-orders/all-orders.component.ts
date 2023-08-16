@@ -121,7 +121,7 @@ export class AllOrdersComponent {
     );
   }
 
-  //TODOS LOS FILTROS
+  //TODOS LOS FILTROS tests
   applyFilters(): void {
     let filteredOrders = this.allOrders;
 

@@ -41,6 +41,9 @@ export interface OrderListUser {
   fechaCreacion: string,
   id_creador: string,
   nombre: string,
+
+  detalle?:DetallesOrders,
+  yearMonthDate: string
 }
 
 export interface OrderData {

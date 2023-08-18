@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, Subject, takeUntil } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, take, takeUntil } from 'rxjs';
+import { AdminService } from 'src/app/admin/admin.service';
 
 import { AuthService } from 'src/app/auth/auth.service';
 
@@ -15,18 +15,27 @@ export class HeaderComponent {
 
   private userRoleSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
 
-  isLoggedIn: boolean = false;
+  userNameLogged: string | null = null;
+
+  isLoggedIn$: boolean = false;
 
   constructor(
     private authService: AuthService,
-    private router: Router,
-
+    private adminService: AdminService,
+    //private router: Router,
     //private badgeService: BadgeService,
-  ){}
+  ){
+    //this.loggedUserName();
+  }
 
   ngOnInit(): void {
+    this.authService.userNameLogged$.subscribe(name => {
+      this.userNameLogged = name;
+    });
+
     this.logoutSubject.pipe(takeUntil(this.destroy$)).subscribe(() => {
     });
+
   }
 
   getUserRole(): Observable<string | null> {
@@ -41,13 +50,15 @@ export class HeaderComponent {
   logout(): void {
     this.setUserRole(null);
     this.authService.logout();
-    
-    //this.logoutSubject.next(true);
 
+    this.logoutSubject.next(true);
   }
 
   ngOnDestroy(): void {
     this.destroy$.next();
-    this.destroy$.complete()
+    this.destroy$.complete();
+
   }
+
+
 }

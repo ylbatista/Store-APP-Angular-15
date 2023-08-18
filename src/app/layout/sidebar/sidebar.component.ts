@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
 
 
 @Component({
@@ -8,9 +9,28 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
-  constructor() { }
+
+  usernameEmail: string | null = null;
+
+  userRolLogged: string | null = null;
+  userNameLogged: string | null = null;
+
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
+    this.authService.userNameLogged$.subscribe(name => {
+      this.userNameLogged = name;
+    })
+
+    this.authService.userRolLogged$.subscribe(rol => {
+      this.userRolLogged = rol;
+    })
+
+    this.authService.usernameUserLogged$.subscribe(username => {
+      this.usernameEmail = username;
+    })
   }
 
 }

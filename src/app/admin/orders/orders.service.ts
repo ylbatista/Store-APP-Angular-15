@@ -16,7 +16,7 @@ export class OrdersService {
   ) { }
 
   //GET ORDERS BY TOKEN, para mostrar a cada usuario su registro de ordenes
-  getOrders(): Observable <OrderListUser[]>{
+  getOrdersByToken(): Observable <OrderListUser[]>{
     const token = localStorage.getItem('token');
     const url = `${this.api_url}/orden/mostrar?token=${token}`;
     return this.http.get<OrderListUser[]>(url);
@@ -40,7 +40,7 @@ export class OrdersService {
     return this.http.get<OrderData[]>(url);
   }
 
-  
+
   getOrderByDate(month: string, year: number ): Observable <any>{
     const url = `${this.api_url}/orden/mostrarTodoFecha?mes= ${month}&Agno=${year}`;
     return this.http.get<Orders>(url);

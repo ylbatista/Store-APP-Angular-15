@@ -5,12 +5,13 @@ import { ListComponent } from './list/list.component';
 import { PNotFoundComponent } from './p-not-found/p-not-found.component';
 import { RouterModule } from '@angular/router';
 import { PagesRoutingModule } from './pages-routing.module';
-import { TotalImportComponent } from '../component/total-import/total-import.component';
+import { TotalImportComponent } from '../components/total-import/total-import.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material.module';
 import { ShowUserOrdersComponent } from './show-user-orders/show-user-orders.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 
     ///MATERIAL
     MaterialModule,
+
+    MatSelectModule,
 
     FormsModule,
     ReactiveFormsModule,

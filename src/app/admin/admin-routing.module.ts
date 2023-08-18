@@ -19,6 +19,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { AllOrdersComponent } from './orders/all-orders/all-orders.component';
 import { MonthSalesGraficComponent } from './dashboard/dashboard-components/month-sales-grafic/month-sales-grafic.component';
 import { GraficsComponent } from './dashboard/dashboard-components/grafics/grafics.component';
+import { HeaderComponent } from '../layout/header/header.component';
 
 
 //ORDERS
@@ -41,7 +42,10 @@ const routes: Routes = [
   { path: 'all-orders', component: AllOrdersComponent },
 
   { path: 'month-sales-grafic', component: MonthSalesGraficComponent },
-  { path: 'grafics', component: GraficsComponent }
+  { path: 'grafics', component: GraficsComponent },
+
+  { path: 'header', component: HeaderComponent },
+
 
 ]
 

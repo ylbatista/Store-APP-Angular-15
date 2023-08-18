@@ -13,9 +13,6 @@ const api_url = environment.API_URL;
   providedIn: 'root'
 })
 export class AuthService {
-  getisLogged() {
-    throw new Error('Method not implemented.');
-  }
 
   private loggedIn = new BehaviorSubject<boolean>(false);
 
@@ -26,6 +23,19 @@ export class AuthService {
   //Creo obs para enviar señal y refrescar el componente sidebar
   //para que cuando me desloguee, actualice sidebar y oculte el boton del sidebar
   private userRoleSubject = new BehaviorSubject<string>('');
+
+  //creo observable para almacenar el nombre del usuario logado
+  private userNameLoggedSubject = new BehaviorSubject<string | null>(null);
+  userNameLogged$ = this.userNameLoggedSubject.asObservable();
+
+  //creo observable para almacenar el rol del usuario logado
+  private userRolLoggedSubject = new BehaviorSubject<string | null>(null);
+  userRolLogged$ = this.userRolLoggedSubject.asObservable();
+
+  //creo obs para almacenar en un [], el rol y el username del usuario logado
+  private usernameUserLoggedSubject = new BehaviorSubject<string | null>(null);
+  usernameUserLogged$ = this.usernameUserLoggedSubject.asObservable();
+
   constructor(
 
     private http: HttpClient,
@@ -46,11 +56,12 @@ export class AuthService {
     // GUARDO ROL EN EL LOCAL STORAGE, PARA REUTILIZARLO POSTERIORMENTE
     public saveRol(rol: string): void{
       localStorage.setItem('rol', rol);
+      this.userRolLoggedSubject.next(rol);
     }
 
-    public hasRole(rol: string): boolean {
-      const userRole = localStorage.getItem('rol');
-      return !!userRole && userRole === rol;
+    // GUARDO username EN un observable, PARA REUTILIZARLO POSTERIORMENTE
+    public saveUsername (username: string): void{
+      this.usernameUserLoggedSubject.next(username);
     }
 
     //OBTENER ROL//
@@ -58,8 +69,16 @@ export class AuthService {
       return localStorage.getItem('rol');
     }
 
-    //OBSERVER PARA MOSTRAR EL BOTON DEL SIDEBAR
-    // JUNTO CON LA DIRECTIVA DE MOSTRAR EL BOTON SI ES ADMIN
+    /* GUARDO name de usuario EN EL LOCAL STORAGE
+    Y SE LO ASIGNO A UN OBSERVABLE,
+    PARA REUTILIZARLO POSTERIORMENTE*/
+    public saveLoggedUser(name: string): void {
+      localStorage.setItem('name', name);
+      this.userNameLoggedSubject.next(name);
+    }
+
+    /*OBSERVER PARA MOSTRAR EL BOTON DEL SIDEBAR
+    JUNTO CON LA DIRECTIVA DE MOSTRAR EL BOTON SI ES ADMIN*/
     setUserRole(rol: string) {
       this.userRoleSubject.next(rol);
     }
@@ -69,8 +88,8 @@ export class AuthService {
       return this.userRoleSubject;
     }
 
-    //////////////////////////////////////////
-    get isLogged(): Observable<boolean>{
+    /////////////////////////////////////
+    get isLogged(): Observable<boolean> {
       return this.loggedIn.asObservable();
     }
 
@@ -82,26 +101,31 @@ export class AuthService {
           map((respuesta: UserResponse) =>{
 
             const rol = respuesta.rol;
-            console.log('LOGADO COMO:', rol);
+            const userNameLog = respuesta.name;
+            const usernameUserLogged = respuesta.username;
+
+            console.log('LOGADO COMO:', rol, 'NOMBRE', userNameLog, usernameUserLogged);
 
             //respuesta del backend al logarme
             //console.log(respuesta);
 
             this.saveToken(respuesta.token);
             this.saveRol(respuesta.rol);
-            //this.loggedIn.next(true);
-            return respuesta;
+            this.saveLoggedUser(userNameLog);
+            this.saveUsername(usernameUserLogged);
 
+
+            return respuesta;
           }),
 
         catchError((err)=> this.handlerError(err))
       );
-
   }
 
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('rol');
+    localStorage.removeItem('name');
     this.loggedIn.next(false);
     //alert("desconectado");
 
@@ -122,7 +146,7 @@ export class AuthService {
     console.log('isExpired=>', isExpired);
 
     //solucion con ternario
-    isExpired? this.logout() : this.loggedIn.next(true);
+    this.loggedIn.next(!isExpired);
 
   }
 

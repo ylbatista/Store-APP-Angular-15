@@ -7,7 +7,7 @@
 
     <span>App Store Name</span>
     <span class="example-spacer"></span>
-
+    <h5>{{ userNameLogged }}</h5>
     <button
       mat-icon-button
       routerLink="/home"
@@ -50,14 +50,14 @@
 
       <button mat-menu-item routerLink="pages/show-user-orders">
         <mat-icon>format_list_numbered_rtl</mat-icon>
-        <span>See all My orders</span>
+        <span>Ver mis Ordenes</span>
       </button>
 
       <button
         mat-menu-item
         (click)="logout()">
         <mat-icon>logout</mat-icon>
-        <span>Log out</span>
+        <span>Logout {{ userNameLogged }} </span>
       </button>
 
     </mat-menu>

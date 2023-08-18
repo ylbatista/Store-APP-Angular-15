@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
 import { AuthService } from '../auth.service';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,7 @@ export class LoginComponent {
     private router:           Router,
     private snackBar:    MatSnackBar,
 
-  ) { }
+  ) {}
 
   ngOnChanges(): void {
     const userData = {
@@ -51,7 +52,8 @@ export class LoginComponent {
               this.router.navigate(['/pages/list']);
             }
           }
-          //console.log('USUARIO LOGADO CORRECTAMENTE', respuesta);
+          console.log('USUARIO LOGADO CORRECTAMENTE', respuesta);
+
 
           this.snackBar.open('USUARIO LOGADO CORRECTAMENTE', '',{
             duration: 3000,
@@ -82,8 +84,8 @@ export class LoginComponent {
 
   }
 
-   /////snackBar para mostrar un mensaje de producto eliminado, se debe importar en el constructor
-   openSnackBar(message: string, action: string): MatSnackBarRef<any>{
+  /////snackBar para mostrar un mensaje de producto eliminado, se debe importar en el constructor
+  openSnackBar(message: string, action: string): MatSnackBarRef<any>{
     return this.snackBar.open(message, action, {
       duration: 2000,
     });

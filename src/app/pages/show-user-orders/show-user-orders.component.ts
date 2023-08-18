@@ -1,8 +1,9 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { OrdersService } from 'src/app/admin/orders/orders.service';
 import { OrderListUser } from 'src/app/interfaces/orders.interface';
-
 
 @Component({
   selector: 'app-show-user-orders',
@@ -19,20 +20,66 @@ import { OrderListUser } from 'src/app/interfaces/orders.interface';
 
 export class ShowUserOrdersComponent {
 
-  displayedColumns: string[] = ['numero', 'fechaCreacion', 'total', 'actions'];
+  months: string[] = ['Todas','Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+  years: number[] = [2023, 2024, 2025];
+
+  selectedMonth: string = this.months[0];
+  selectedYear: number = this.years[0];
+
+  idCreador: string[] = [];
+
   orders: OrderListUser[] = [];
+  dataSource!: MatTableDataSource<OrderListUser>;
+
+  columnsToDisplay = ['Id Orden','Fecha de Creación', 'Importe Orden'];
+
+  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
+  expandedElement!: OrderListUser;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+
 
   constructor(
     private ordersService: OrdersService,
   ){}
 
-  //RECIBIENDO LA SUBSCRIPCION DEL OBS PARA OBTENER EL LISTADO DE OEDENES POR USER
+  //RECIBIENDO LA SUBSCRIPCION DEL OBS PARA OBTENER EL LISTADO DE OrDENES POR USER
   ngOnInit(): void {
-    this.ordersService.getOrders().subscribe({
+    this.ordersService.getOrdersByToken().subscribe({
       next: (response: OrderListUser[]) => {
         this.orders = response;
-          console.log('LISTADO DE ORDENES DEL USUARIO',response);
+        console.log('LISTADO DE ORDENES DEL USUARIO',response);
+
+        //le asigno al dataSource una nueva instancia y le doy como parametro this.orders
+        this.dataSource = new MatTableDataSource<OrderListUser>(this.orders);
+        this.dataSource.paginator = this.paginator;
+        this.applyFilters();
       }
     });
+  }
+
+  //TODOS LOS FILTROS
+  applyFilters(): void {
+    //const loggedUserId = '';
+
+    let filteredOrders = this.orders;
+
+
+    if (this.selectedMonth !== 'Todas') {
+      filteredOrders = filteredOrders.filter(order => {
+        const orderDate = new Date(order.fechaCreacion);
+        return orderDate.getMonth() === this.months.indexOf(this.selectedMonth) - 1;
+      });
+    }
+
+    if (this.selectedYear) {
+      filteredOrders = filteredOrders.filter(order => {
+        const orderDate = new Date(order.fechaCreacion);
+        return orderDate.getFullYear() === this.selectedYear;
+      });
+    }
+
+    this.dataSource.data = filteredOrders;
   }
 }

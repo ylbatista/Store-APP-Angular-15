@@ -9,7 +9,6 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class SidebarComponent {
 
-
   usernameEmail: string | null = null;
 
   userRolLogged: string | null = null;
@@ -21,7 +20,7 @@ export class SidebarComponent {
 
   ngOnInit(): void {
     this.authService.userNameLogged$.subscribe(name => {
-      this.userNameLogged = name;
+      this.userNameLogged = name?.toUpperCase();
     })
 
     this.authService.userRolLogged$.subscribe(rol => {

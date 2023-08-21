@@ -25,7 +25,7 @@ export class AuthService {
   private userRoleSubject = new BehaviorSubject<string>('');
 
   //creo observable para almacenar el nombre del usuario logado
-  private userNameLoggedSubject = new BehaviorSubject<string | null>(null);
+  private userNameLoggedSubject = new BehaviorSubject<string>('');
   userNameLogged$ = this.userNameLoggedSubject.asObservable();
 
   //creo observable para almacenar el rol del usuario logado
@@ -101,17 +101,17 @@ export class AuthService {
           map((respuesta: UserResponse) =>{
 
             const rol = respuesta.rol;
-            const userNameLog = respuesta.name;
+            const nameLog = respuesta.name;
             const usernameUserLogged = respuesta.username;
 
-            console.log('LOGADO COMO:', rol, 'NOMBRE', userNameLog, usernameUserLogged);
+            console.log('LOGADO COMO:', rol, 'NOMBRE', nameLog, usernameUserLogged);
 
             //respuesta del backend al logarme
             //console.log(respuesta);
 
             this.saveToken(respuesta.token);
             this.saveRol(respuesta.rol);
-            this.saveLoggedUser(userNameLog);
+            this.saveLoggedUser(nameLog);
             this.saveUsername(usernameUserLogged);
 
 

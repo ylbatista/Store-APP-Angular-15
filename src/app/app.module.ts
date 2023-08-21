@@ -30,6 +30,7 @@ import { DashboardModule } from './admin/dashboard/dashboard.module';
 
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { GraficsComponent } from './admin/dashboard/dashboard-components/grafics/grafics.component';
+import { AllOrdersComponent } from './admin/orders/all-orders/all-orders.component';
 //import { ApexChart } from 'ng-apexcharts';
 
 
@@ -47,7 +48,8 @@ import { GraficsComponent } from './admin/dashboard/dashboard-components/grafics
 
     MonthSalesGraficComponent,
     GraficsComponent,
-    
+    // AllOrdersComponent
+
   ],
 
   imports: [

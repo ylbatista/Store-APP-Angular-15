@@ -8,15 +8,11 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { AllOrdersComponent } from '../orders/all-orders/all-orders.component';
 
 
-
-
 @NgModule({
   declarations: [
-    //MonthSalesGraficComponent
 
-
-    //GraficsComponent
   ],
+
   imports: [
     CommonModule,
 
@@ -24,6 +20,7 @@ import { AllOrdersComponent } from '../orders/all-orders/all-orders.component';
     AdminModule,
     PagesModule,
     SharedModule,
+
 
     NgApexchartsModule,
   ]

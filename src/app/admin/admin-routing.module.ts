@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 //PRODUCT MODULE
-
 import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { DetailProductComponent } from './products/detail-product/detail-product.component';
@@ -21,10 +20,7 @@ import { MonthSalesGraficComponent } from './dashboard/dashboard-components/mont
 import { GraficsComponent } from './dashboard/dashboard-components/grafics/grafics.component';
 import { HeaderComponent } from '../layout/header/header.component';
 
-
 //ORDERS
-
-
 const routes: Routes = [
 
   { path:'dashboard', component: DashboardComponent },
@@ -45,7 +41,6 @@ const routes: Routes = [
   { path: 'grafics', component: GraficsComponent },
 
   { path: 'header', component: HeaderComponent },
-
 
 ]
 

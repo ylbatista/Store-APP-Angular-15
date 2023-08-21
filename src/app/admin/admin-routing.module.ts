@@ -19,6 +19,7 @@ import { AllOrdersComponent } from './orders/all-orders/all-orders.component';
 import { MonthSalesGraficComponent } from './dashboard/dashboard-components/month-sales-grafic/month-sales-grafic.component';
 import { GraficsComponent } from './dashboard/dashboard-components/grafics/grafics.component';
 import { HeaderComponent } from '../layout/header/header.component';
+import { RegisterComponent } from '../auth/register/register.component';
 
 //ORDERS
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path:'users', component: UsersComponent },
   { path: 'users-list', component: UsersListComponent },
   { path: 'users-edit', component: UsersEditComponent },
+  { path: 'register', component: RegisterComponent },
 
   { path: 'orders', component: OrdersComponent },
   { path: 'all-orders', component: AllOrdersComponent },

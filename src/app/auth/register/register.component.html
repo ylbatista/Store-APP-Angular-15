@@ -1,11 +1,16 @@
 <p>register works!</p>
+<div class="button-container">
+  <span>
+    <button *ngIf="rol" mat-raised-button color="primary" class="center-button" routerLink="/admin/users-list">Regresar</button>
+  </span>
+</div>
+
 <div class="center-content">
     <mat-card class="mat-card">
       <br>
       <h3><strong>USER-REGISTER</strong></h3>
 
       <form [formGroup]="registerForm" (ngSubmit)="sendUser()">
-
 
         <!--USER-->
           <mat-form-field class="full-width-input" appearance="fill">
@@ -50,8 +55,6 @@
             </button>
           </mat-form-field>
 
-
-
           <!--NOMBRE-->
           <mat-form-field class="full-width-input" appearance="fill">
             <mat-label>Name</mat-label>
@@ -87,27 +90,27 @@
               type="text"></textarea>
           </mat-form-field>
 
-              <!--***********VALIDACIONES**********-->
-            <!-- <div>
-              <div>
-                <p *ngIf="invalidCamp('!userName')" style="color: red;"><b>El nombre es obligatorio</b></p>
-              </div>
+          <!--BUTTONs-->
+          <div class="button-container">
 
-            </div> -->
+            <button
+              class="center-button"
+              mat-raised-button type="submit"
+              color="warn"
+              [disabled]="registerForm.invalid">Apply Register
+            </button>
+          </div>
 
-
-
-              <!--BUTTONs-->
-            <div class="button-container">
-
-              <button class="center-button" mat-raised-button type="submit" color="warn" [disabled]="registerForm.invalid">Apply Register</button>
-            </div>
-
-            <br>
-            <!--sINGUP-->
+          <br>
+          <!--sINGUP-->
 
 
       </form>
-      <button class="center-button" mat-raised-button color="primary" routerLink="/auth/login">Log in...</button><br>
+      <button
+        class="center-button"
+        mat-raised-button
+        color="primary"
+        routerLink="/auth/login">Log in...
+      </button><br>
     </mat-card>
   </div>

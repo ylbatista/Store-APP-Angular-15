@@ -1,4 +1,12 @@
 <p>users-edit works!</p>
+<div class="button-container">
+  <button
+    mat-raised-button
+    color="primary" class="center-button"
+    routerLink="/admin/users-list">Regresar</button>
+  <!-- <button mat-raised-button color="primary" class="center-button">Button 2</button>
+  <button mat-raised-button color="primary" class="center-button">Button 3</button> -->
+</div>
 <!-- user-form.component.html -->
 <div class="center-content">
   <mat-card class="mat-card">
@@ -6,7 +14,7 @@
     <h3><strong>EDIT-USER</strong></h3>
 
     <form [formGroup]="editForm" (ngSubmit)="updateUser()" >
-      
+
       <mat-form-field class="full-width-input"appearance="fill">
         <mat-label>Nombre</mat-label>
         <input
@@ -27,6 +35,16 @@
           type="text"
           id="apellido" required>
       </mat-form-field>
+
+      <!-- <mat-form-field class="full-width-input" appearance="fill">
+        <mat-label>Cambiar contraseña</mat-label>
+        <input
+          matInput formControlName="pwd"
+          autocomplete="off"
+          name="pwd"
+          type="password"
+          id="pwd" required>
+      </mat-form-field> -->
 
       <mat-form-field class="full-width-input" appearance="fill">
         <mat-label>Dirección</mat-label>
@@ -55,12 +73,5 @@
   </mat-card>
 </div>
 <br>
-<div class="button-container">
-  <button
-    mat-raised-button
-    color="primary" class="center-button"
-    routerLink="/admin/users-list">Back to userlist</button>
-  <!-- <button mat-raised-button color="primary" class="center-button">Button 2</button>
-  <button mat-raised-button color="primary" class="center-button">Button 3</button> -->
-</div>
+
 

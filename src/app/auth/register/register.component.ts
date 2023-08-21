@@ -14,6 +14,8 @@ export class RegisterComponent {
   hide = true;
   public registerForm!: FormGroup;
 
+  rol: string | null;
+
   constructor(
 
     private authService: AuthService,
@@ -21,7 +23,12 @@ export class RegisterComponent {
     private roter:       Router,
     private snackBar: MatSnackBar
 
-  ) { }
+  ) {
+    /*declaro el rol para chequear si hay rol que se renderice
+    el boton (regresar) a la lista de usuarios cuando se cree
+    un user desde admin*/
+    this.rol = localStorage.getItem('rol');
+  }
 
   ngOnInit() {
 

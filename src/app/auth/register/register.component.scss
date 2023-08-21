@@ -4,27 +4,27 @@
     text-align: center;
 
   }
-  
+
   .mat-card{
-  
+
     max-width: 350px;
     margin: 2rem auto;
     height: auto;
   }
-  
+
   .full-width-input{
     width: 100%;
     align-items: center;
-  
-  }
 
-  .button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
   }
 
   .center-button {
     margin: 0 10px; /* Añade un margen horizontal para separar los botones */
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: auto;
   }

@@ -1,0 +1,66 @@
+.content {
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1%;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.card-container {
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.20);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.card-container:hover {
+  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2);
+  transform: translateY(-01px);
+}
+
+.img {
+  padding: 12px;
+  border-radius: 25px;
+  height: 60px;
+  width: 50px;
+}
+
+.card-header {
+  padding-left:3px;
+  padding-top: 0px;
+  padding-right: 7px;
+  flex-grow: 1;
+}
+
+.email{
+  display: flex;
+  //align-items: center;
+}
+
+.email p {
+  margin-left: 8px;
+}
+
+.right-icon {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Empuja el ícono hacia la derecha */
+}
+.space{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.space-add {
+  margin-top: 10px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { Product } from '../interfaces/product.interface';
 import { AllUsers } from '../interfaces/user.interface';
 
-
 @Injectable({
   providedIn: 'root'
 })

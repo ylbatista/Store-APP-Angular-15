@@ -82,7 +82,7 @@ describe('Service: Orders', () => {
     const token = '123516735167';
 
     const expectedOrdersByToken: OrderListUser[] = [
-      {id_creador:'123', total: 10, numero: '123', fechaCreacion: '12/2/2022', nombre: 'nombre test'},
+      {id_creador:'123', total: 10, numero: '123', fechaCreacion: '12/2/2022', nombre: 'nombre test', yearMonthDate: ''},
 
       //se puede agregar mas ordenes mock
     ];

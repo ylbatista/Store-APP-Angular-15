@@ -25,14 +25,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { MonthSalesGraficComponent } from './admin/dashboard/dashboard-components/month-sales-grafic/month-sales-grafic.component';
 import { DashboardModule } from './admin/dashboard/dashboard.module';
-
 import { NgApexchartsModule } from 'ng-apexcharts';
-import { GraficsComponent } from './admin/dashboard/dashboard-components/grafics/grafics.component';
-import { AllOrdersComponent } from './admin/orders/all-orders/all-orders.component';
 //import { ApexChart } from 'ng-apexcharts';
 
+//import component by show dashboard
+import { GraficsComponent } from './admin/dashboard/dashboard-components/grafics/grafics.component';
+import { MonthSalesGraficComponent } from './admin/dashboard/dashboard-components/month-sales-grafic/month-sales-grafic.component';
+import { CardsUserComponent } from './admin/dashboard/dashboard-components/cards-user/cards-user.component';
+import { GraficYearsComponent } from './admin/dashboard/dashboard-components/grafics-year/grafic-year.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -46,12 +49,14 @@ import { AllOrdersComponent } from './admin/orders/all-orders/all-orders.compone
     FooterComponent,
     DashboardComponent,
 
+    //import component by show dashboard
     MonthSalesGraficComponent,
     GraficsComponent,
-    // AllOrdersComponent
+    CardsUserComponent,
+    GraficYearsComponent
+
 
   ],
-
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -73,6 +78,9 @@ import { AllOrdersComponent } from './admin/orders/all-orders/all-orders.compone
     MatIconModule,
     MatButtonModule,
     LayoutModule,
+
+    FormsModule,
+    CommonModule,
 
     NgApexchartsModule,
   ],

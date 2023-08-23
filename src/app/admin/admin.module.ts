@@ -10,11 +10,10 @@ import { ProductsModule } from './products/products.module';
 import { UsersModule } from './users/users.module';
 import { MaterialModule } from '../shared/material.module';
 import { OrdersModule } from './orders/orders.module';
-import { DashboardModule } from './dashboard/dashboard.module';
-
 
 @NgModule({
   declarations: [
+
   ],
 
   imports: [

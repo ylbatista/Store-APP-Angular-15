@@ -1,0 +1,57 @@
+
+<mat-card>
+  <div class="space-add">
+
+    <mat-card-header>
+      <mat-card-title class="space-add">Usuarios Creados
+
+      </mat-card-title>
+      <mat-card-subtitle>Registro de todos los usuarios</mat-card-subtitle>
+    </mat-card-header>
+
+    <div class="example-button-container">
+      <button mat-mini-fab color="warn"
+      routerLink="/auth/register"
+      matTooltip="Crear Usuario">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+
+
+    <mat-card-content>
+
+      <div class="content">
+
+        <div *ngFor="let AllUsers of users" class="card-container">
+
+          <div class="card-container">
+            <img src="../../../../../assets/img/usuario.png" class="img">
+
+            <mat-card-header class="card-header">
+
+              <mat-card-title class="space">{{ AllUsers.nombre }}
+
+                <mat-icon mat-icon-button
+                  color="warn"
+                  matTooltip ="Eliminar Usuario"
+                  (click)="deleteUser(AllUsers.id)">delete</mat-icon>
+              </mat-card-title>
+
+              <mat-card-subtitle class="space">{{ AllUsers.apellido }}
+              </mat-card-subtitle>
+
+              <mat-card-subtitle class="email">
+                <mat-icon>email</mat-icon>
+                <p>{{ AllUsers.userName }}</p>
+              </mat-card-subtitle>
+
+            </mat-card-header>
+
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+
+</mat-card>
+

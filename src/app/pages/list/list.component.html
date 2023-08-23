@@ -2,42 +2,48 @@
 
 <!-- <small><app-total-import></app-total-import></small> -->
 <h2 style="margin: 10px; text-align: center;">LISTA DE PRODUCTOS</h2>
-
 <!-- FILTRO POR TIPO DE PRODUCTO -->
-<div class="search-container">
+<!-- <div class="search-container">
   <mat-icon class="search-icon">search</mat-icon>
   <input
     type="text"
-    [(ngModel)]="typeProduct"
+    [(ngModel)]="productType"
     (input)="filtrarProductos()"
     placeholder="Search by product type..."
     class="search-input">
     <span class="search-icon">
       <i class="fas fa-search"></i>
     </span>
+</div> -->
+
+<!-- FILTRO -->
+<div class="filter-container">
+
+  <!-- filtro por tipo -->
+  <div class="filter">
+    <div>
+      <mat-label class="small-label"> Filtro</mat-label>
+      <mat-select class="small-select" [(ngModel)]="selectedProductType" (selectionChange)="applyFilters()" placeholder="Tipo de Producto">
+        <mat-option *ngFor="let tipo of productType" [value]="tipo">{{ tipo }}</mat-option>
+      </mat-select>
+    </div>
+    {{selectedProductType}}
+  </div>
+
+
+
 </div>
 
 <div class="content">
-  <div class="card" *ngFor="let product of products">
-    <div *ngIf="product.cantidad > 1">
+  <div *ngFor="let product of filteredProducts">
+    <div class="card" *ngIf="product.cantidad > 1">
 
       <div >
         <h6 class="card-title">{{product.nombre}}</h6>
       </div>
 
-
-      <!-- <div class=" face front">
-        <h3>TORTUGA</h3>
-      </div> -->
-
       <div class="card-container">
         <img class="card-image" src ="{{product.img}}" alt="Imagen del producto" matTooltip="DESCRIPCION: {{product.descripcion}}">
-
-        <!-- <div class="ventana" id="windows">
-
-          <p> {{product.descripcion}}</p>
-        </div> -->
-
         <div>
           <strong>
             <div class="cant">
@@ -55,10 +61,9 @@
           (click)="sendData(product)"
           [disabled]="product.cantidad === 0"> AGREGAR AL CARRITO
         </button>
-       </div>
+      </div>
 
     </div>
-
   </div>
 </div>
 

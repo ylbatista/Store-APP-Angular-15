@@ -5,8 +5,6 @@ import { AdminModule } from '../admin.module';
 import { PagesModule } from 'src/app/pages/pages.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgApexchartsModule } from 'ng-apexcharts';
-import { AllOrdersComponent } from '../orders/all-orders/all-orders.component';
-
 
 @NgModule({
   declarations: [

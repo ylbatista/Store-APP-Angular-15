@@ -9,6 +9,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material.module';
 import { ShowUserOrdersComponent } from './show-user-orders/show-user-orders.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { ShowUserOrdersComponent } from './show-user-orders/show-user-orders.com
 
     ///MATERIAL
     MaterialModule,
+
+    MatSelectModule,
 
     FormsModule,
     ReactiveFormsModule,

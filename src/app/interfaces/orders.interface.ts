@@ -43,7 +43,7 @@ export interface OrderListUser {
   nombre: string,
 
   detalle?:DetallesOrders,
-  yearMonthDate: string
+  yearMonthDate: string,
 }
 
 export interface OrderData {

@@ -1,20 +1,36 @@
-.example-card {
-  max-width: 400px;
+// .example-card {
+//   max-width: 400px;
+// }
+
+.all{
+  display: flexbox;
+  gap: 0px;
 }
 
-.main-container{
+.main-container {
   display: flex;
 
 }
 
-.app-month-sale-size{
+.app-month-sale-size {
   width: 75%;
   height: auto;
   transform: scale(0.9);
 }
 
-.app-grafics-size{
-  width: 25%;
+.app-grafics-size {
+  width: 20%;
   height: auto;
   transform: scale(0.9);
 }
+
+.app-cards-user {
+  width: 95%;
+  height: auto;
+  transform: scale(0.9);
+}
+
+.card-container {
+  width: auto;
+}
+

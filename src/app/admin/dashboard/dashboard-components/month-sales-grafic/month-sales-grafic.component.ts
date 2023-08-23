@@ -72,7 +72,7 @@ export class MonthSalesGraficComponent {
       ],
       chart: {
         type: "bar",
-        height: 300
+        height: 280
       },
       plotOptions: {
         bar: {

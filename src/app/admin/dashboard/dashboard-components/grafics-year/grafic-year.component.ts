@@ -1,21 +1,27 @@
 import { Component, ViewChild } from '@angular/core';
-import { ApexNonAxisChartSeries, ApexChart, ApexPlotOptions, ChartComponent } from 'ng-apexcharts';
+import { ApexNonAxisChartSeries, ApexChart, ApexResponsive, ApexFill, ApexLegend, ApexDataLabels, ChartComponent } from 'ng-apexcharts';
 import { MonthSalesService } from '../month-sales-grafic/month-sales.service';
 import { DataTable } from 'src/app/interfaces/data-table';
+
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
   chart: ApexChart;
-  labels: string[];
-  plotOptions: ApexPlotOptions;
+  responsive: ApexResponsive[];
+  //labels: any;
+  fill: ApexFill;
+  legend: ApexLegend;
+  dataLabels: ApexDataLabels;
 };
 
 @Component({
-  selector: 'app-grafics',
-  templateUrl: './grafics.component.html',
-  styleUrls: ['./grafics.component.scss']
+  selector: 'app-grafic-year',
+  templateUrl: './grafic-year.component.html',
+  styleUrls: ['./grafic-year.component.scss']
+
 })
-export class GraficsComponent {
+
+export class GraficYearsComponent {
 
   mes: string[] = [];
   cantOrdenes: number[] = [];
@@ -27,7 +33,6 @@ export class GraficsComponent {
   anioDinero!: number;
   anioOrden!: number;
 
-
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions: ChartOptions;
 
@@ -37,33 +42,35 @@ export class GraficsComponent {
     this.chartOptions = {
       series: [],
       chart: {
-        height: 250,
-        type: "radialBar",
-
+        width: 350,
+        type: "donut"
       },
-      plotOptions: {
-        radialBar: {
-          dataLabels: {
-            name: {
-              fontSize: "17px"
+      dataLabels: {
+        enabled: false
+      },
+      fill: {
+        type: "gradient"
+      },
+      legend: {
+        formatter: function(val, opts) {
+          return val + " - " + opts.w.globals.series[opts.seriesIndex];
+        }
+      },
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
             },
-            value: {
-              fontSize: "20px"
-            },
-            total: {
-              show: true,
-              label: "Total Año $",
-              formatter: (val) => {
-                return String(this.anioDinero);
-              }
+            legend: {
+              position: "bottom"
             }
           }
         }
-      },
-      labels: ["Ordenes Anuales", "Importe Anual"]
+      ]
     };
   }
-
 
   ngOnInit(data: DataTable): void {
     this.monhtSaleService.getTableData().subscribe({
@@ -78,4 +85,5 @@ export class GraficsComponent {
       }
     })
   }
+
 }

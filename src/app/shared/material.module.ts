@@ -23,6 +23,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MatRadioModule } from '@angular/material/radio';
 
 import { MatExpansionModule } from '@angular/material/expansion';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -58,6 +59,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     FormsModule,
     ReactiveFormsModule,
 
+    MatProgressBarModule
+
 
   ],
 
@@ -90,6 +93,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     //forms
     FormsModule,
     ReactiveFormsModule,
+    
+    MatProgressBarModule
 
   ]
 })

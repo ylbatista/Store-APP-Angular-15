@@ -15,14 +15,25 @@ export class ListComponent implements OnInit {
 
   public totalProductsBag: number = 0;
   showBack: boolean = false;
-  productType: string [] = ['All types'];
+
+  //array productType para solo enviar el (tipo) de cada producto
+  productType: string [] = [];
 
   selectedProductType: string = '';
-
+  //array para almacenar todos los productos
   allProduct: Product[] =[];
+
+  //array para almacenar los productos filtrados por (tipo)
   filteredProducts: Product[] = [];
 
-  constructor(
+  //para radiobutton
+  selectedPriceRange!: string;
+
+  //para simular la carga en un (mat-progress-bar) cuando llamo a la funcion applyFilter
+  isLoading: boolean = false;
+  isFiltering: boolean = false;
+
+  constructor (
     private productService: ProductService,
     private carService: CarService,
     private badgeService: BadgeService,
@@ -46,6 +57,8 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductsByPage(0,15);
+    this.selectedPriceRange = 'all';
+    // this.selectedProductType = 'All types';
   }
 
   getImageUrl(imageName: string){
@@ -82,11 +95,41 @@ export class ListComponent implements OnInit {
   /*Funcion para aplicar filtros*/
   applyFilters(): void {
 
-    if ( this.selectedProductType && this.selectedProductType !== 'All types') {
-      this.filteredProducts = this.allProduct.filter(product => product.tipo === this.selectedProductType);
-    } else {
-      this.filteredProducts = this.allProduct;
-    }
+    this.isLoading = true;
+    console.log('carga empezada');
+
+    setTimeout(() => {
+
+      // Filtrado por tipo de producto
+      let filteredProductsByType: Product[] = this.allProduct;
+
+      if (this.selectedProductType && this.selectedProductType !== 'All types') {
+        filteredProductsByType = this.allProduct.filter(product => product.tipo === this.selectedProductType);
+      }
+
+      // Filtrado por rango de precios
+      if (this.selectedPriceRange === 'all') {
+      this.filteredProducts = filteredProductsByType;
+
+      } else if (this.selectedPriceRange === '0-5') {
+        this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 0 && product.precio <= 5);
+
+      } else if (this.selectedPriceRange === '6-10') {
+        this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 6 && product.precio <= 10);
+
+      } else if (this.selectedPriceRange === '11-20') {
+        this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 11 && product.precio <= 20);
+
+      } else if (this.selectedPriceRange === '21+') {
+        this.filteredProducts = filteredProductsByType.filter(product => product.precio > 20);
+      }
+      
+      this.isLoading = false;
+      console.log('Carga detenida');
+    }, 500);
+
+
+
   }
 
   //////snackbar message

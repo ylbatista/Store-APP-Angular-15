@@ -19,7 +19,7 @@ export class FullListComponent {
 
   products: Product [] = [];
 
-  displayedColumns: string[] = [ 'id','nombre', 'descripcion','cantidad', 'precio', 'actions'];
+  displayedColumns: string[] = [ 'id','tipo','nombre', 'descripcion','cantidad', 'precio', 'actions'];
   dataSource: MatTableDataSource<Product>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -19,22 +19,36 @@
 <!-- FILTRO -->
 <div class="filter-container">
 
-  <!-- filtro por tipo -->
+  <!-- FILTRO POR TIPO DE PRODUCTO -->
   <div class="filter">
     <div>
-      <mat-label class="small-label"> Filtro</mat-label>
-      <mat-select class="small-select" [(ngModel)]="selectedProductType" (selectionChange)="applyFilters()" placeholder="Tipo de Producto">
+      <mat-label class="small-label"> Filtrar por tipo de producto</mat-label>
+      <mat-select class="small-select" [(ngModel)]="selectedProductType" (selectionChange)="applyFilters()" placeholder="Seleccionar tipo">
         <mat-option *ngFor="let tipo of productType" [value]="tipo">{{ tipo }}</mat-option>
       </mat-select>
     </div>
-    {{selectedProductType}}
+    <!-- {{selectedProductType}} -->
   </div>
 
-
-
+  <!-- FILTRANDO PRECIOS CON RADIO-BUTTON -->
+  <div class="filter-container">
+    <div>
+      <mat-label class="small-label"> Filtrar por rango de precio</mat-label> <br>
+      <mat-radio-group [(ngModel)]="selectedPriceRange" (change)="applyFilters()">
+        <mat-radio-button color="primary" value="all">Todos</mat-radio-button>
+        <mat-radio-button color="warn" value="0-5">$ 0 - 5</mat-radio-button>
+        <mat-radio-button color="warn" value="6-10">$ 6 - 10</mat-radio-button>
+        <mat-radio-button color="warn" value="11-20">$ 11 - 20</mat-radio-button>
+        <mat-radio-button color="warn" value="21+">Más de $ 21</mat-radio-button>
+      </mat-radio-group>
+      <!-- {{selectedPriceRange}} -->
+    </div>
+  </div>
 </div>
 
 <div class="content">
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+
   <div *ngFor="let product of filteredProducts">
     <div class="card" *ngIf="product.cantidad > 1">
 

@@ -4,7 +4,7 @@ import { CarService } from 'src/app/pages/buy-car/car.service';
 @Component({
   selector: 'app-total-import',
   template: `
-  <p><strong>Total: {{ total | currency }}</strong></p>
+  <p><small>Total: {{ total  }}</small></p>
   `,
   styles: ['']
 })
@@ -15,7 +15,7 @@ export class TotalImportComponent {
 
   constructor(
     private carService: CarService,
-    
+
   ) { }
 
 

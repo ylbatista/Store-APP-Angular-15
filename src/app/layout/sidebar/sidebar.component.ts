@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
+import { Subject, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
-
-
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -9,16 +8,16 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class SidebarComponent {
 
-  usernameEmail: string | null = null;
-
-  userRolLogged: string | null = null;
+  usernameEmail: string  | null = null;
+  userRolLogged: string  | null = null;
   userNameLogged: string | null = null;
 
-  constructor(
-    private authService: AuthService
-  ) { }
+  constructor (
+    private authService: AuthService,
+  ) {}
 
   ngOnInit(): void {
+
     this.authService.userNameLogged$.subscribe(name => {
       this.userNameLogged = name?.toUpperCase();
     })
@@ -31,5 +30,6 @@ export class SidebarComponent {
       this.usernameEmail = username;
     })
   }
+
 
 }

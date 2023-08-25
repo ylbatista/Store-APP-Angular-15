@@ -132,7 +132,6 @@ export class AuthService {
     //redireccionar a la pagina home
     this.logoutSubject.next(true);
     this.router.navigate(['/home']);
-
   }
 
   //GET para obtener el logoutSUbject

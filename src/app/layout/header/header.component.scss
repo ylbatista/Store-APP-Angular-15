@@ -1,3 +1,30 @@
-.example-spacer {
-    flex: 1 1 auto;
+  .example-spacer {
+    flex: 1 1;
+  }
+
+  .mat-toolbar {
+    padding-top: 10px;
+    background-color: #1d1d1d; /* Color gris oscuro deseado */
+    color: white; /* Color del texto en el encabezado */
+  }
+
+  /* Clase CSS personalizada para ajustar el espacio y otros estilos */
+  .custom-header {
+    padding: 20px; /* Ajusta el espacio interno del encabezado */
+    border-bottom: 1px solid #ddd; /* Agrega un borde inferior opcional */
+  }
+
+  .align-center{
+    margin-left: 50%;
+    text-align: center;
+  }
+
+  .title{
+    font-size: 20px;
+    font-family: 'ChickenScratch';
+  }
+
+  .logo-container{
+    display: flex;
+    gap: 20px;
   }

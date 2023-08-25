@@ -1,7 +1,7 @@
 <!-- <p>sidebar works!</p> -->
 <mat-drawer-container class="side-nav" autosize>
 
-  <mat-drawer #drawer color="primary" mode="over">
+  <mat-drawer #drawer color="primary" mode="push">
 
     <div class="user">
       <img src="../../../assets/img/user.jpg" class="user-img" width="100px">
@@ -10,7 +10,7 @@
           <p class="p-email">{{ usernameEmail }}</p>
           <!-- <p>{{userRolLogged}}</p> -->
       </div>
-      <img src="../../../assets/img/white-star.png" class="star-img" width="50px">
+      <mat-icon class="star-img" width="50px">star_rating</mat-icon>
     </div>
 
     <div>
@@ -33,7 +33,7 @@
 
   </mat-drawer>
 
-  <button mat-button type="button" (click)="drawer.toggle()">
+  <button adminOnly mat-button type="button" (click)="drawer.toggle()">
     <!-- <button adminOnly mat-button type="button" (click)="drawer.toggle()"> -->
     <mat-icon>menu</mat-icon>
     <!-- <mat-icon adminOnly type="button" mat-button (click)="drawer.toggle()">menu</mat-icon> -->

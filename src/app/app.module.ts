@@ -53,8 +53,7 @@ import { CommonModule } from '@angular/common';
     MonthSalesGraficComponent,
     GraficsComponent,
     CardsUserComponent,
-    GraficYearsComponent
-
+    GraficYearsComponent,
 
   ],
   imports: [

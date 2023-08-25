@@ -42,22 +42,20 @@ export class HeaderComponent {
     return this.userRoleSubject.asObservable();
   }
 
-  setUserRole(userRole: string | null): void {
+  setUserRole(userRole: string): void {
     this.userRoleSubject.next(userRole);
   }
 
   //LOGOUT
   logout(): void {
-    this.setUserRole(null);
+    this.setUserRole('');
     this.authService.logout();
-
     this.logoutSubject.next(true);
   }
 
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
-
   }
 
 

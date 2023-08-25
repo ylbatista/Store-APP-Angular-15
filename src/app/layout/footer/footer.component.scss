@@ -1,31 +1,20 @@
 
-// .docs-footer {
-
-//     font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
-//     background: #3f51b5;
-//     color: #fff;
-//     padding: 12px;
-//     font-size: 12px;
-// }
-
 .docs-footer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 5vh; /* Ajusta la altura según tus necesidades */
     font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
-    background: #3f51b5;
+    background-color: #1d1d1d;
     color: #fff;
     padding: 12px;
   }
-  
+
   .docs-footer div {
     margin-right: 1rem; /* Agrega un margen derecho para separar los elementos */
   }
-  
+
   .text-white-center {
     text-align: center;
     color: white; /* Cambia el color del texto según tu preferencia */
   }
-  
-  

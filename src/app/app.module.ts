@@ -35,7 +35,7 @@ import { MonthSalesGraficComponent } from './admin/dashboard/dashboard-component
 import { CardsUserComponent } from './admin/dashboard/dashboard-components/cards-user/cards-user.component';
 import { GraficYearsComponent } from './admin/dashboard/dashboard-components/grafics-year/grafic-year.component';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 
 @NgModule({
   declarations: [

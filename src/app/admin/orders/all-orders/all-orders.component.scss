@@ -1,4 +1,10 @@
+.all{
+  margin: 1%;
+}
+
 .button-container {
+  margin: 0px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,19 +66,11 @@ tr.example-element-row:not(.example-expanded-row):active {
   opacity: 0.5;
 }
 
-.container {
-  display: flex;
-}
-
-
 //3 BOTONES
 .button-container {
-  margin-left: 20px;
   flex: 1;
   justify-content: right;
   align-items: center;
-  //height: auto;
-  margin-bottom: 20px;
 }
 
 .center-button {
@@ -89,18 +87,9 @@ tr.example-element-row:not(.example-expanded-row):active {
   flex: 0 0 auto;
   margin-right: 10px;
 }
-///////////////////////
-///
-// width: 100%;
-//   height: 200px;
-//   object-fit: cover;
-// ///
 
 .card-image {
   border-radius: 7px;
-  // width: 5%;
-  // height: auto;
-  // object-fit: cover;
 }
 
 .details-container {
@@ -108,12 +97,12 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 ///ESTILOS PARA EL FILTRO POR MES Y POR AñO
-.filter-container {
-  display: flex;
-  justify-content: left; /* Alinea horizontalmente el contenido al centro */
-  align-items: left; /* Alinea verticalmente el contenido al centro (opcional) */
-  margin-top: 20px; /* Añade un margen superior (opcional) */
-}
+// .filter-container {
+//   display: flex;
+//   justify-content: left; /* Alinea horizontalmente el contenido al centro */
+//   align-items: left; /* Alinea verticalmente el contenido al centro (opcional) */
+//   margin-top: 20px; /* Añade un margen superior (opcional) */
+// }
 
 .form-size{
   height: 65px;

@@ -1,4 +1,11 @@
+.all {
+  margin: 1%;
+}
+
+
 .button-container {
+  margin: 0px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,17 +69,6 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .container {
   display: flex;
-}
-
-
-//3 BOTONES
-.button-container {
-  margin-left: 20px;
-  flex: 1;
-  justify-content: right;
-  align-items: center;
-  //height: auto;
-  margin-bottom: 20px;
 }
 
 .center-button {

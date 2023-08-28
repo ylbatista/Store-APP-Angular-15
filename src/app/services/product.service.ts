@@ -27,10 +27,10 @@ constructor(private http: HttpClient) {}
   }
 
   //GET PRODUCT BY TIPO
-   getProductByType(tipo: string){
-    const url = `${this.api_url}/producto/filtro?pageNo=0&pageSize=15&filtro = ${tipo}`;
-    return this.http.get<Product>(url);
-  }
+  //  getProductByType(tipo: string){
+  //   const url = `${this.api_url}/producto/filtro?pageNo=0&pageSize=15&filtro = ${tipo}`;
+  //   return this.http.get<Product>(url);
+  // }
 
   ///UPDATE PRODUCT by ID
   updateProduct( productId: string, product: any ): Observable<any> {

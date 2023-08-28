@@ -1,13 +1,12 @@
 <!-- <p>sidebar works!</p> -->
 <mat-drawer-container class="side-nav" autosize>
 
-  <mat-drawer #drawer color="primary" mode="push">
+  <mat-drawer #drawer color="warn" mode="push" style="background-color: #1d1d1d">
 
     <div class="user">
       <img src="../../../assets/img/user.jpg" class="user-img" width="100px">
       <div>
-          <h5 class="h4-admin"><small><strong>{{ userNameLogged }}</strong> </small> </h5>
-          <p class="p-email">{{ usernameEmail }}</p>
+          <h5 class="h4-admin"><small><strong>{{ userNameLogged }} <br> {{ usernameEmail }} </strong> </small> </h5>
           <!-- <p>{{userRolLogged}}</p> -->
       </div>
       <mat-icon class="star-img" width="50px">star_rating</mat-icon>
@@ -18,17 +17,22 @@
       width="250px">
     </div>
 
-    <div class="example-menu" cdkMenu>
-      <button class="example-menu-item" cdkMenuItem routerLink="/admin/dashboard"> <mat-icon>dashboard</mat-icon> DASHBOARD</button>
-      <button class="example-menu-item" cdkMenuItem routerLink="/admin/add-product"> <mat-icon>new_label</mat-icon>AGREGAR PRODUCTO</button>
-      <button class="example-menu-item" cdkMenuItem routerLink="/admin/full-list"> <mat-icon>list</mat-icon> LISTA PRODUCTOS</button>
-      <button class="example-menu-item" cdkMenuItem routerLink="/admin/users-list"> <mat-icon>account_circle</mat-icon> LISTA USUARIOS</button>
-      <button class="example-menu-item" cdkMenuItem routerLink="/admin/all-orders"> <mat-icon>reorder</mat-icon> LISTA ORDENES</button>
-      <button class="example-menu-item" cdkMenuItem routerLink="/pages/list"> <mat-icon>store</mat-icon> TIENDA PRODUCTOS</button>
+    <div class="example-menu" cdkMenu style="background-color: #1d1d1d">
+      <button class="example-menu-item" cdkMenuItem routerLink="/admin/dashboard"> <mat-icon style="margin-right: 10px;">dashboard</mat-icon> DASHBOARD</button>
+      <button class="example-menu-item" cdkMenuItem routerLink="/pages/list"> <mat-icon style="margin-right: 10px;">storefront</mat-icon> TIENDA PRODUCTOS</button>
+      <button class="example-menu-item" cdkMenuItem routerLink="/admin/add-product"> <mat-icon style="margin-right: 10px;">new_label</mat-icon>AGREGAR PRODUCTO</button>
+      <button class="example-menu-item" cdkMenuItem routerLink="/admin/full-list"> <mat-icon style="margin-right: 10px;">list</mat-icon> LISTA PRODUCTOS</button>
+      <button class="example-menu-item" cdkMenuItem routerLink="/admin/users-list"> <mat-icon style="margin-right: 10px;">account_circle</mat-icon> LISTA USUARIOS</button>
+      <button class="example-menu-item" cdkMenuItem routerLink="/admin/all-orders"> <mat-icon style="margin-right: 10px;">reorder</mat-icon> LISTA ORDENES</button>
 
-      <div>
-        <button class="example-menu-item" cdkMenuItem> <mat-icon>logout</mat-icon> LOG OUT</button>
-      </div>
+      <button class="example-menu-item" cdkMenuItem> <mat-icon style="margin-right: 10px;">reorder</mat-icon> EXAMPLE 1</button>
+      <button class="example-menu-item" cdkMenuItem> <mat-icon style="margin-right: 10px;">reorder</mat-icon> EXAMPLE 2</button>
+      <button class="example-menu-item" cdkMenuItem> <mat-icon style="margin-right: 10px;">reorder</mat-icon> EXAMPLE 3</button>
+      <button class="example-menu-item" cdkMenuItem> <mat-icon style="margin-right: 10px;">reorder</mat-icon> EXAMPLE 4</button>
+      <button class="example-menu-item" cdkMenuItem> <mat-icon style="margin-right: 10px;">reorder</mat-icon> EXAMPLE 5</button>3
+      <!-- <div5
+        <button5class="example-menu-item" cdkMenuItem> <mat-icon>logout</mat-icon> LOG OUT</button5class=>
+      </div> -->
     </div>
 
   </mat-drawer>

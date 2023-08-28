@@ -4,27 +4,35 @@
 
 
   <div class="logo-container">
-    <span><img src="./../../../assets/icons/logo.png" alt="" width="35px"></span>
-    <!-- <span class="title"></span> -->
-    <h1 style="font-size: 35px"> Ñoooo, Que barato !!!</h1>
+    <span>
+      <img
+        routerLink="/home"
+        src="./../../../assets/logo/logotipo.png" alt="" class="logo-img" style="cursor: pointer;">
+    </span>
   </div>
+
 
   <span class="example-spacer"></span>
   <!-- <h5>{{ userNameLogged }}</h5> -->
 
-  <div class="align-center">
-    <a mat-button>HOME</a>
-  </div>
-
-
   <button
     mat-icon-button
     routerLink="/home"
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
+    class="example-icon favorite-icon,;"
+    aria-label="Example icon-button with heart icon;"
     matTooltip="HOME">
       <mat-icon>home</mat-icon>
   </button>
+
+  <a routerLink="/auth/register">
+    <button mat-button>
+        <p style="font-size: 12px; color: white;  line-height: 1.5; margin: 0px;">Hola! Identifícate, <br>
+          <strong style="font-size: 12px; letter-spacing: 1.5px;">
+            REGISTROS AQUI
+          </strong>
+        </p>
+    </button>
+  </a>
 
   <button
     mat-icon-button
@@ -71,7 +79,7 @@
 
   </mat-menu>
 
-  <span class="logo-container">
+  <span isLogged class="logo-container">
     <app-badge
     routerLink="/pages/buy-car"
     matTooltip="CARRITO DE COMPRAS"></app-badge>

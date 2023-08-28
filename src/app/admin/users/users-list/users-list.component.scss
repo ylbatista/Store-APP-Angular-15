@@ -15,13 +15,31 @@
     width: 25%;
   }
 
-  .button-container {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    height: auto;
+///////////////////////////
+  .responsive-table{
+    overflow-x: auto;
+    display: block;
+  }
+  .mat-table{
+    width: 100%;
+    table-layout: auto;
   }
 
-  .center-button {
-    margin: 0 10px; /* Añade un margen horizontal para separar los botones */
-  }
+  .mat-cell,
+.mat-header-cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Asegurarse de que los botones en la columna "actions" sean visibles en pantallas pequeñas */
+.button-container {
+  display: flex;
+  justify-content: right;
+  gap: 10px; /* Espacio entre los botones */
+}
+
+/* Ajustar el ancho mínimo de la columna "actions" en pantallas pequeñas */
+.mat-column-actions {
+  min-width: 100px;
+}

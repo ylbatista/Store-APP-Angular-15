@@ -33,6 +33,13 @@ export class ListComponent implements OnInit {
   isLoading: boolean = false;
   isFiltering: boolean = false;
 
+  //para contar la cantidad de productos filtrados
+  filteredProductCountAll: number = 0;
+  filteredProductCount0_5: number = 0;
+  filteredProductCount6_10: number = 0;
+  filteredProductCount11_20: number = 0;
+  filteredProductCount_21: number =0;
+
   constructor (
     private productService: ProductService,
     private carService: CarService,
@@ -56,7 +63,7 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProductsByPage(0,15);
+    this.getProductsByPage(0,10000);
     this.selectedPriceRange = 'all';
     // this.selectedProductType = 'All types';
   }
@@ -76,6 +83,8 @@ export class ListComponent implements OnInit {
         console.log('TODOS LOS PRODUCTOS', content);
         this.allProduct = content;
 
+        // this.filteredProductCount = content.length;
+
         // para mostrar solo una vez el tipo de los productos en el array
         this.productType = ['All types', ...Array.from(new Set(content.map(item => item.tipo)))];
         console.log('arreglo solamente con el TIPO de productos', this.productType);
@@ -88,7 +97,7 @@ export class ListComponent implements OnInit {
   ////FILTRAR PRODUCTOS POR TIPO DE PRODUCTO
   filtrarProductos(): void {
     const pageNo = 0; // Puedes ajustar estos valores según tus necesidades
-    const pageSize = 15;
+    const pageSize = 10000;
     this.getProductsByPage(pageNo, pageSize);
   }
 
@@ -101,29 +110,36 @@ export class ListComponent implements OnInit {
     setTimeout(() => {
 
       // Filtrado por tipo de producto
-      let filteredProductsByType: Product[] = this.allProduct;
+    let filteredProductsByType: Product[] = this.allProduct;
 
-      if (this.selectedProductType && this.selectedProductType !== 'All types') {
-        filteredProductsByType = this.allProduct.filter(product => product.tipo === this.selectedProductType);
-      }
+    if (this.selectedProductType && this.selectedProductType !== 'All types') {
+      filteredProductsByType = this.allProduct.filter(product => product.tipo === this.selectedProductType);
+    }
 
-      // Filtrado por rango de precios
-      if (this.selectedPriceRange === 'all') {
-      this.filteredProducts = filteredProductsByType;
+    // Filtrado por rango de precios
+    if (this.selectedPriceRange === 'all') {
+    this.filteredProducts = filteredProductsByType;
+    this.filteredProductCountAll = this.filteredProducts.length;
 
-      } else if (this.selectedPriceRange === '0-5') {
-        this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 0 && product.precio <= 5);
+    } else if (this.selectedPriceRange === '0-5') {
+      this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 0 && product.precio <= 5);
+      this.filteredProductCount0_5 = this.filteredProducts.length;
 
-      } else if (this.selectedPriceRange === '6-10') {
-        this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 6 && product.precio <= 10);
+    } else if (this.selectedPriceRange === '6-10') {
+      this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 6 && product.precio <= 10);
+      this.filteredProductCount6_10 = this.filteredProducts.length;
 
-      } else if (this.selectedPriceRange === '11-20') {
-        this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 11 && product.precio <= 20);
+    } else if (this.selectedPriceRange === '11-20') {
+      this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 11 && product.precio <= 20);
+      this.filteredProductCount11_20 = this.filteredProducts.length;
 
-      } else if (this.selectedPriceRange === '21+') {
-        this.filteredProducts = filteredProductsByType.filter(product => product.precio > 20);
-      }
-      
+    } else if (this.selectedPriceRange === '21+') {
+      this.filteredProducts = filteredProductsByType.filter(product => product.precio > 20);
+      this.filteredProductCount_21 = this.filteredProducts.length;
+    }
+
+
+
       this.isLoading = false;
       console.log('Carga detenida');
     }, 500);

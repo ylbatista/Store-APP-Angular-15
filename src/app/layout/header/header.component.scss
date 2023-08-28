@@ -24,7 +24,13 @@
     font-family: 'ChickenScratch';
   }
 
-  .logo-container{
-    display: flex;
-    gap: 20px;
+  .logo-container {
+    text-align: center;
   }
+
+  .logo-img {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+    max-width: 300px; /* Establece un ancho máximo para evitar que la imagen se agrande demasiado */
+    margin-top: 15px;
+  }
+

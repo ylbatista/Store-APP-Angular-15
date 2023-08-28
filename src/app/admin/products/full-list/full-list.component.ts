@@ -37,7 +37,7 @@ export class FullListComponent {
    }
 
     ngOnInit(): void {
-      this.getProductsByPage(0, 15);
+      this.getProductsByPage(0, 100);
       this.route.params.subscribe(params => this.applyFilter(params['event']));
     }
 

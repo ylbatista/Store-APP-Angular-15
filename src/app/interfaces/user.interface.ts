@@ -2,9 +2,10 @@ export type rol = "USER" | "ADMIN";
 
 export interface User {
   id?:       string;
-  userName?: string;
-  pwd?:      string;
+  userName: string;
+  pwd:      string;
   rol?:      string;
+  rememberMe: boolean;
 }
 
 export interface UserResponse {

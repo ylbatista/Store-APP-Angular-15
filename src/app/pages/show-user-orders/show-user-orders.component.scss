@@ -2,10 +2,7 @@
   margin: 1%;
 }
 
-
 .button-container {
-  margin: 0px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,17 +38,47 @@ tr.example-element-row:not(.example-expanded-row):active {
   display: flex;
 }
 
+///////////////////////////////////////////////////////////
+/// ESTILOS PARA MOSTRAR LAS MINI-CARD DE LOS PORDUCTOS COMPRADOS
 .example-element-diagram {
+  display: flex;
+  border-radius: 5px;
   min-width: 80px;
   border: 0.1px solid rgb(166, 197, 255);
-  padding: 8px;
   font-weight: lighter;
-  margin: 2px 0;
-  height: auto;
-  border-radius: 8px; /* Agrega esta línea para redondear los bordes */
-  background-color: rgb(220, 247, 255);
+  height: 60px;
+   /* Agrega esta línea para redondear los bordes */
+   background-color: rgb(220, 247, 255);
   margin: 0 2px;
+  overflow: hidden;
+  margin-bottom: 5px;
 }
+
+.data {
+  font-family: 'Bahnschrift Condensed';
+  height: auto;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+//estilos minicard product
+.example-element-diagram {
+  display: flex;
+  align-items: center;
+}
+
+.card-image {
+  // height: 50px;
+  border-radius:5px;
+  width: 70px;
+  height: auto;
+  object-fit: cover;
+}
+
+.details-container {
+  flex: 1;
+}
+/////////////////////////////////////////////////////////////
 
 .example-element-symbol {
   font-weight: bold;
@@ -67,65 +94,41 @@ tr.example-element-row:not(.example-expanded-row):active {
   opacity: 0.5;
 }
 
-.container {
-  display: flex;
-}
-
-.center-button {
-  margin: 0 4px; /* Añade un margen horizontal para separar los botones */
-}
-
-//estilos minicard product
-.example-element-diagram {
-  display: flex;
-  align-items: center;
-}
-
-.image-container {
-  flex: 0 0 auto;
-  margin-right: 10px;
-}
-///////////////////////
-///
-// width: 100%;
-//   height: 200px;
-//   object-fit: cover;
-// ///
-
-.card-image {
-  border-radius: 7px;
-  // width: 5%;
-  // height: auto;
-  // object-fit: cover;
-}
-
-.details-container {
-  flex: 1;
-}
-
-///ESTILOS PARA EL FILTRO POR MES Y POR AñO
+///////////////////////////////////////////////
+///ESTILOS PARA EL FILTRO
 .filter-container {
+  width: 90%;
+  background: rgba(141, 213, 255, 0.6);
+  // box-shadow: 0 2px 7px rgba(0, 0, 0, 0.20);
+  border-radius: 30px;
   display: flex;
-  justify-content: left; /* Alinea horizontalmente el contenido al centro */
-  align-items: left; /* Alinea verticalmente el contenido al centro (opcional) */
-  margin-top: 20px; /* Añade un margen superior (opcional) */
+  // flex-wrap: wrap;
+  gap: 4%;
+  margin-left: 5%;
 }
 
-.form-size {
+.filter {
+  margin-left: 4%;
+  width: 200px;
+}
+
+.dashboard-icon {
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: 0px;
+}
+//////////////////////////////////////////////
+
+.form-size{
   height: 65px;
   width: auto;
 }
 
-.small-label {
+.small-label{
   font-size: 15px;
 }
 
-.small-select {
+.small-select{
   font-size: 12px;
   margin-bottom: 3px;
-}
-
-.details-contanier {
-  
-
 }

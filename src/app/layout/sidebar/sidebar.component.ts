@@ -22,9 +22,9 @@ export class SidebarComponent {
       this.userNameLogged = name?.toUpperCase();
     })
 
-    this.authService.userRolLogged$.subscribe(rol => {
-      this.userRolLogged = rol;
-    })
+    // this.authService.userRolLogged$.subscribe(rol => {
+    //   this.userRolLogged = rol;
+    // })
 
     this.authService.usernameUserLogged$.subscribe(username => {
       this.usernameEmail = username;

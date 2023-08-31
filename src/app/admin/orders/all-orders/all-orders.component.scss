@@ -1,10 +1,8 @@
-.all{
+.all {
   margin: 1%;
 }
 
 .button-container {
-  margin: 0px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,19 +36,48 @@ tr.example-element-row:not(.example-expanded-row):active {
 .example-element-detail {
   overflow: hidden;
   display: flex;
+  margin-bottom: 5px;
 }
-
+//////////////////////////////////////////
+///ESTILOS PARA MOSTRAR LAS MINI-CARD DE LOS PORDUCTOS COMPRADOS
 .example-element-diagram {
+  display: flex;
+  border-radius: 5px;
   min-width: 80px;
   border: 0.1px solid rgb(166, 197, 255);
-  padding: 8px;
   font-weight: lighter;
-  margin: 2px 0;
   height: auto;
-  border-radius: 8px; /* Agrega esta línea para redondear los bordes */
+   /* Agrega esta línea para redondear los bordes */
   background-color: rgb(220, 247, 255);
   margin: 0 2px;
+  overflow: hidden;
+
 }
+
+.data {
+  font-family: 'Bahnschrift Condensed';
+  height: auto;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+//estilos minicard product
+.example-element-diagram {
+  display: flex;
+  align-items: center;
+}
+
+.card-image {
+  border-radius:5px;
+  min-width: 80px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.details-container {
+  flex: 1;
+}
+// /////////////////////////////////////////
 
 .example-element-symbol {
   font-weight: bold;
@@ -68,41 +95,43 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 //3 BOTONES
 .button-container {
+  margin-left: 20px;
   flex: 1;
   justify-content: right;
   align-items: center;
+  //height: auto;
+  margin-bottom: 20px;
 }
 
 .center-button {
   margin: 0 4px; /* Añade un margen horizontal para separar los botones */
 }
 
-//estilos minicard product
-.example-element-diagram {
+///////////////////////////////////////////////
+///ESTILOS PARA EL FILTRO
+.filter-container {
+  width: 90%;
+  background: rgba(141, 213, 255, 0.6);
+  // box-shadow: 0 2px 7px rgba(0, 0, 0, 0.20);
+  border-radius: 30px;
   display: flex;
-  align-items: center;
+  // flex-wrap: wrap;
+  gap: 4%;
+  margin-left: 5%;
 }
 
-.image-container {
-  flex: 0 0 auto;
-  margin-right: 10px;
+.filter {
+  margin-left: 4%;
+  width: 200px;
 }
 
-.card-image {
-  border-radius: 7px;
+.dashboard-icon {
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: 0px;
 }
+//////////////////////////////////////////////
 
-.details-container {
-  flex: 1;
-}
-
-///ESTILOS PARA EL FILTRO POR MES Y POR AñO
-// .filter-container {
-//   display: flex;
-//   justify-content: left; /* Alinea horizontalmente el contenido al centro */
-//   align-items: left; /* Alinea verticalmente el contenido al centro (opcional) */
-//   margin-top: 20px; /* Añade un margen superior (opcional) */
-// }
 
 .form-size{
   height: 65px;

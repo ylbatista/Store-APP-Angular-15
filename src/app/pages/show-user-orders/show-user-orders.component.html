@@ -1,44 +1,39 @@
-
 <div class="all">
 
-  <!-- <p>show-user-orders works!</p> -->
+  <h2 style="margin: 10px; text-align: center;">REGISTRO DE ORDENES DE USUSARIO</h2>
 
-  <div class="button-container">
-    <!-- FILTRO y panel de botones -->
+  <!-- FILTRO -->
+  <div class="filter-container">
 
-    <div class="container">
+    <!-- FILTRO POR TIPO DE PRODUCTO -->
+    <div class="filter">
 
-      <div class="filter-container">
-        <!-- <p>FILTRAR FECHA: {{selectedYear}} / {{selectedMonth}} </p> -->
-        <!-- Años -->
-        <mat-form-field class="form-size" matTooltip="Seleccione el Año deseado">
-          <mat-label class="small-label">Filtrar por año </mat-label>
-          <mat-select class="small-select" [(ngModel)]="selectedYear" (selectionChange)="applyFilters()">
-            <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <!-- Meses -->
-        <mat-form-field class="form-size" matTooltip="Seleccione el Mes deseado">
-          <mat-label class="small-label">Filtrar por mes</mat-label>
-          <mat-select class="small-select" [(ngModel)]="selectedMonth" (selectionChange)="applyFilters()">
-            <mat-option *ngFor="let month of months" [value]="month">{{ month }}</mat-option>
-          </mat-select>
-        </mat-form-field>
+      <div style="margin-top: 10px;">
+        <mat-label class="small-label"> Filtrar por Año</mat-label>
+        <mat-select class="small-select" [(ngModel)]="selectedYear" (selectionChange)="applyFilters()">
+          <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+        </mat-select>
       </div>
+      <!-- {{selectedProductType}} -->
     </div>
 
+    <!-- FILTRANDO POR MES -->
+    <div style="margin-top: 10px;">
+      <mat-label class="small-label">Filtrar por mes</mat-label>
+      <mat-select class="small-select" [(ngModel)]="selectedMonth" (selectionChange)="applyFilters()">
+        <mat-option *ngFor="let month of months" [value]="month">{{ month }}</mat-option>
+        </mat-select>
+    </div>
 
-    <span class="button-container">
-      <button mat-raised-button color="primary" class="center-button" routerLink="/admin/dashboard">Go Dashboard</button>
-    </span>
+    <!-- <button routerLink="/admin/dashboard" mat-fab matTooltip="Regresar al Dashboard" color="acent" class="dashboard-icon">
+      <mat-icon>dashboard</mat-icon>
+    </button> -->
 
   </div>
 
-  <h3 style="margin: 10px; text-align: center;">REGISTRO DE ORDENES DE USUSARIO</h3>
+  <br>
 
   <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
-
 
     <ng-container  matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
       <th mat-header-cell *matHeaderCellDef>
@@ -74,22 +69,19 @@
 
           <div class="example-element-diagram" *ngFor="let detalle of allOrders.detalles">
 
-            <div class="image-container" matTooltip="Total por producto {{detalle.total | currency}}">
-              <img class="card-image" src="{{detalle.producto?.img}}" alt="product img" height="65px">
+            <div matTooltip="Total por producto {{detalle.total | currency}}">
+              <img class="card-image" src="{{detalle.producto?.img}}" alt="product img" >
             </div>
 
             <div class="details-container">
               <strong>
-                <small>
-                  <div>Name: {{detalle.producto.nombre}}</div>
-                  <div>Cant/C: {{detalle.cantidad}}</div>
-                  <div>Price/U: {{detalle.producto.precio | currency}}</div>
-                </small>
+                <div class="data">{{detalle.producto.nombre}}</div>
+                <div class="data">Cant/C: {{detalle.cantidad}}</div>
+                <div class="data">Price/U: {{detalle.producto.precio | currency}}</div>
               </strong>
             </div>
 
           </div>
-
         </div>
       </td>
     </ng-container>
@@ -105,5 +97,6 @@
   </table>
   <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]" aria-label="Select page of users"></mat-paginator>
   <br>
+
 
 </div>

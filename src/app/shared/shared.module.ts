@@ -19,7 +19,7 @@ import { IsLoggedDirective } from '../directives/isLogged.directive';
   ],
 
   exports: [
-    
+
     AdminOnlyDirective,
     IsLoggedDirective,
 

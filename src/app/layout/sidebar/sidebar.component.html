@@ -6,7 +6,7 @@
     <div class="user">
       <img src="../../../assets/img/user.jpg" class="user-img" width="100px">
       <div>
-          <h5 class="h4-admin"><small><strong>{{ userNameLogged }} <br> {{ usernameEmail }} </strong> </small> </h5>
+          <h4 class="h4-admin"><small><strong>{{ userNameLogged }} <br> {{ usernameEmail }} </strong> </small> </h4>
           <!-- <p>{{userRolLogged}}</p> -->
       </div>
       <mat-icon class="star-img" width="50px">star_rating</mat-icon>
@@ -18,6 +18,7 @@
     </div>
 
     <div class="example-menu" cdkMenu style="background-color: #1d1d1d">
+
       <button class="example-menu-item" cdkMenuItem routerLink="/admin/dashboard"> <mat-icon style="margin-right: 10px;">dashboard</mat-icon> DASHBOARD</button>
       <button class="example-menu-item" cdkMenuItem routerLink="/pages/list"> <mat-icon style="margin-right: 10px;">storefront</mat-icon> TIENDA PRODUCTOS</button>
       <button class="example-menu-item" cdkMenuItem routerLink="/admin/add-product"> <mat-icon style="margin-right: 10px;">new_label</mat-icon>AGREGAR PRODUCTO</button>
@@ -30,17 +31,17 @@
       <button class="example-menu-item" cdkMenuItem> <mat-icon style="margin-right: 10px;">reorder</mat-icon> EXAMPLE 3</button>
       <button class="example-menu-item" cdkMenuItem> <mat-icon style="margin-right: 10px;">reorder</mat-icon> EXAMPLE 4</button>
       <button class="example-menu-item" cdkMenuItem> <mat-icon style="margin-right: 10px;">reorder</mat-icon> EXAMPLE 5</button>3
-      <!-- <div5
-        <button5class="example-menu-item" cdkMenuItem> <mat-icon>logout</mat-icon> LOG OUT</button5class=>
-      </div> -->
+
     </div>
 
   </mat-drawer>
 
-  <button adminOnly mat-button type="button" (click)="drawer.toggle()">
-    <!-- <button adminOnly mat-button type="button" (click)="drawer.toggle()"> -->
+  <!-- <button class="floating-button" mat-button type="button" (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
-    <!-- <mat-icon adminOnly type="button" mat-button (click)="drawer.toggle()">menu</mat-icon> -->
+  </button> -->
+
+  <button adminOnly class="floating-button" mat-mini-fab color="primary" (click)="drawer.toggle()" matTooltip="Despliegue barra de navegación">
+    <mat-icon>menu</mat-icon>
   </button>
 
   <router-outlet></router-outlet>

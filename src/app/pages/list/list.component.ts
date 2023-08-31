@@ -109,40 +109,40 @@ export class ListComponent implements OnInit {
 
     setTimeout(() => {
 
-      // Filtrado por tipo de producto
-    let filteredProductsByType: Product[] = this.allProduct;
+        // Filtrado por tipo de producto
+      let filteredProductsByType: Product[] = this.allProduct;
 
-    if (this.selectedProductType && this.selectedProductType !== 'All types') {
-      filteredProductsByType = this.allProduct.filter(product => product.tipo === this.selectedProductType);
-    }
+      if (this.selectedProductType && this.selectedProductType !== 'All types') {
+        filteredProductsByType = this.allProduct.filter(product => product.tipo === this.selectedProductType);
+      }
 
-    // Filtrado por rango de precios
-    if (this.selectedPriceRange === 'all') {
-    this.filteredProducts = filteredProductsByType;
-    this.filteredProductCountAll = this.filteredProducts.length;
+      // Filtrado por rango de precios
+      if (this.selectedPriceRange === 'all') {
+      this.filteredProducts = filteredProductsByType;
+      this.filteredProductCountAll = this.filteredProducts.length;
 
-    } else if (this.selectedPriceRange === '0-5') {
-      this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 0 && product.precio <= 5);
-      this.filteredProductCount0_5 = this.filteredProducts.length;
+      } else if (this.selectedPriceRange === '0-5') {
+        this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 0 && product.precio <= 5);
+        this.filteredProductCount0_5 = this.filteredProducts.length;
 
-    } else if (this.selectedPriceRange === '6-10') {
-      this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 6 && product.precio <= 10);
-      this.filteredProductCount6_10 = this.filteredProducts.length;
+      } else if (this.selectedPriceRange === '6-10') {
+        this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 6 && product.precio <= 10);
+        this.filteredProductCount6_10 = this.filteredProducts.length;
 
-    } else if (this.selectedPriceRange === '11-20') {
-      this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 11 && product.precio <= 20);
-      this.filteredProductCount11_20 = this.filteredProducts.length;
+      } else if (this.selectedPriceRange === '11-20') {
+        this.filteredProducts = filteredProductsByType.filter(product => product.precio >= 11 && product.precio <= 20);
+        this.filteredProductCount11_20 = this.filteredProducts.length;
 
-    } else if (this.selectedPriceRange === '21+') {
-      this.filteredProducts = filteredProductsByType.filter(product => product.precio > 20);
-      this.filteredProductCount_21 = this.filteredProducts.length;
-    }
+      } else if (this.selectedPriceRange === '21+') {
+        this.filteredProducts = filteredProductsByType.filter(product => product.precio > 20);
+        this.filteredProductCount_21 = this.filteredProducts.length;
+      }
 
 
 
       this.isLoading = false;
       console.log('Carga detenida');
-    }, 500);
+    }, 300);
 
 
 

@@ -7,7 +7,6 @@ import { AuthService } from '../auth/auth.service';
 })
 export class IsLoggedDirective {
 
-
   //private isLogged = false;
   private subscription!: Subscription;
   private destroy$: Subject<void> = new Subject<void>();
@@ -35,15 +34,6 @@ export class IsLoggedDirective {
       // ocultar el botón
       this.renderer.setStyle(this.el.nativeElement, 'display', 'none');
     });
-  }
 
-  ngOnDestroy() {
-    
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 }

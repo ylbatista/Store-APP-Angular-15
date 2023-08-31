@@ -32,7 +32,7 @@ export class AuthService {
   private userRolLoggedSubject = new BehaviorSubject<string | null>(null);
   userRolLogged$ = this.userRolLoggedSubject.asObservable();
 
-  //creo obs para almacenar en un [], el rol y el username del usuario logado
+  //creo obs para almacenar el username del usuario logado
   private usernameUserLoggedSubject = new BehaviorSubject<string | null>(null);
   usernameUserLogged$ = this.usernameUserLoggedSubject.asObservable();
 
@@ -41,7 +41,7 @@ export class AuthService {
     private http: HttpClient,
     private router: Router,
 
-  ) { this.checkToken(); }
+  ) { this.checkToken() }
 
     // GUARDO TOKEN EN EL LOCAL STORAGE
     public saveToken(token: string): void{
@@ -70,8 +70,7 @@ export class AuthService {
     }
 
     /* GUARDO name de usuario EN EL LOCAL STORAGE
-    Y SE LO ASIGNO A UN OBSERVABLE,
-    PARA REUTILIZARLO POSTERIORMENTE*/
+    Y SE LO ASIGNO A UN OBSERVABLE, PARA REUTILIZARLO POSTERIORMENTE*/
     public saveLoggedUser(name: string): void {
       localStorage.setItem('name', name);
       this.userNameLoggedSubject.next(name);
@@ -114,7 +113,6 @@ export class AuthService {
             this.saveLoggedUser(nameLog);
             this.saveUsername(usernameUserLogged);
 
-
             return respuesta;
           }),
 
@@ -146,7 +144,6 @@ export class AuthService {
 
     //solucion con ternario
     this.loggedIn.next(!isExpired);
-
   }
 
   private handlerError(err: { message: any; }): Observable <never> {

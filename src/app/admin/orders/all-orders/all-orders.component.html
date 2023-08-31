@@ -1,46 +1,45 @@
 <div class="all">
 
-  <div class="button-container">
+  <h2 style="margin: 10px; text-align: center;">LISTA DE TODAS LAS ORDENES</h2>
 
-    <div class="container">
-      <!-- FILTRO y panel de botones -->
-      <div class="filter-container">
-        <!-- <p>FILTRAR FECHA: {{selectedYear}} / {{selectedMonth}} </p> -->
-        <!-- Años -->
-        <mat-form-field class="form-size" matTooltip="Seleccione el Año deseado">
-          <mat-label class="small-label">Filtrar por año </mat-label>
-          <mat-select class="small-select" [(ngModel)]="selectedYear" (selectionChange)="applyFilters()">
-            <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
-          </mat-select>
-        </mat-form-field>
+  <!-- FILTRO -->
+  <div class="filter-container">
 
-        <!-- Meses -->
-        <mat-form-field class="form-size" matTooltip="Seleccione el Mes deseado">
-          <mat-label class="small-label">Filtrar por mes</mat-label>
-          <mat-select class="small-select" [(ngModel)]="selectedMonth" (selectionChange)="applyFilters()">
-            <mat-option *ngFor="let month of months" [value]="month">{{ month }}</mat-option>
-          </mat-select>
-        </mat-form-field>
+    <!-- FILTRO POR TIPO DE PRODUCTO -->
+    <div class="filter">
 
-        <!-- Usuarios -->
-        <mat-form-field class="form-size" matTooltip="Seleccione el Usuario">
-          <mat-label class="small-label">Filtrar por Nombre</mat-label>
-          <mat-select class="small-select" [(ngModel)]="selectedUser" (selectionChange)="applyFilters()">
-            <mat-option *ngFor="let selectedUser of users" [value]="selectedUser"> {{ selectedUser }} </mat-option>
-          </mat-select>
-        </mat-form-field>
-
+      <div style="margin-top: 10px;">
+        <mat-label class="small-label"> Filtrar por Año</mat-label>
+        <mat-select class="small-select" [(ngModel)]="selectedYear" (selectionChange)="applyFilters()">
+          <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+        </mat-select>
       </div>
-
+      <!-- {{selectedProductType}} -->
     </div>
 
-    <button mat-raised-button color="primary" class="center-button" routerLink="/admin/dashboard">Ir a Dashboard</button>
+    <!-- FILTRANDO POR MES -->
+    <div style="margin-top: 10px;">
+      <mat-label class="small-label">Filtrar por mes</mat-label>
+      <mat-select class="small-select" [(ngModel)]="selectedMonth" (selectionChange)="applyFilters()">
+        <mat-option *ngFor="let month of months" [value]="month">{{ month }}</mat-option>
+        </mat-select>
+    </div>
+
+    <!-- FILTRANDO POR USUARIO -->
+    <div style="margin-top: 10px;">
+      <mat-label class="small-label">Filtrar por Nombre</mat-label>
+      <mat-select class="small-select" [(ngModel)]="selectedUser" (selectionChange)="applyFilters()">
+        <mat-option *ngFor="let selectedUser of users" [value]="selectedUser"> {{ selectedUser }} </mat-option>
+      </mat-select>
+    </div>
+
+      <button routerLink="/admin/dashboard" mat-fab matTooltip="Regresar al Dashboard" color="acent" class="dashboard-icon">
+        <mat-icon>dashboard</mat-icon>
+      </button>
+      
   </div>
 
-
-
-
-  <h3 style="margin: 10px; text-align: center;">LISTA DE TODAS LAS ORDENES</h3>
+  <br>
 
   <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
 
@@ -89,16 +88,14 @@
           <div class="example-element-diagram" *ngFor="let detalle of allOrders.detalles">
 
             <div class="image-container" matTooltip="Total por producto {{detalle.total | currency}}">
-              <img class="card-image" src="{{detalle.producto?.img}}" alt="product img" height="65px">
+              <img class="card-image" src="{{detalle.producto?.img}}" alt="product img">
             </div>
 
             <div class="details-container">
               <strong>
-                <small>
-                  <div>Name: {{detalle.producto.nombre}}</div>
-                  <div>Cant/C: {{detalle.cantidad}}</div>
-                  <div>Price/U: {{detalle.producto.precio | currency}}</div>
-                </small>
+                <div class="data">{{detalle.producto.nombre}}</div>
+                <div class="data">Cant/C: {{detalle.cantidad}}</div>
+                <div class="data">Price/U: {{detalle.producto.precio | currency}}</div>
               </strong>
             </div>
 

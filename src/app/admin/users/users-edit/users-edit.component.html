@@ -1,75 +1,79 @@
-<p>users-edit works!</p>
-<div class="button-container">
-  <button
-    mat-raised-button
-    color="primary" class="center-button"
-    routerLink="/admin/users-list">Regresar</button>
+<!-- <p>users-edit works!</p> -->
+
+<div class="all">
+
+  <div class="button-container">
+    <button
+      mat-raised-button
+      color="primary" class="center-button"
+      routerLink="/admin/users-list">Regresar
+    </button>
+  </div>
+  <!-- user-form.component.html -->
+  <div class="center-content">
+    <mat-card class="mat-card">
+      <br>
+      <h3><strong>EDIT-USER</strong></h3>
+
+      <form [formGroup]="editForm" (ngSubmit)="updateUser()" >
+
+        <mat-form-field class="full-width-input"appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="nombre"
+            name="nombre"
+            type="text"
+            id="nombre" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input" appearance="fill">
+          <mat-label>Apellido</mat-label>
+          <input
+            matInput formControlName="apellido"
+            autocomplete="off"
+            name="apellido"
+            type="text"
+            id="apellido" required>
+        </mat-form-field>
+
+        <!-- <mat-form-field class="full-width-input" appearance="fill">
+          <mat-label>Cambiar contraseña</mat-label>
+          <input
+            matInput formControlName="pwd"
+            autocomplete="off"
+            name="pwd"
+            type="password"
+            id="pwd" required>
+        </mat-form-field> -->
+
+        <mat-form-field class="full-width-input" appearance="fill">
+          <mat-label>Dirección</mat-label>
+          <textarea
+            matInput
+            formControlName="direccion"
+            autocomplete="off"
+            name="direccion"
+            type="text"
+            id="direccion" required></textarea>
+        </mat-form-field>
+
+        <div class="radio-group">
+          <strong><span>Change user role</span></strong><br>
+          <mat-radio-group formControlName="rol">
+            <mat-radio-button value="ADMIN">ADMIN</mat-radio-button>
+            <mat-radio-button value="USER">USER</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="user-form">
+          <button mat-raised-button color="warn" (click)="updateUser()" class="full-width-input">Actualizar Usuario</button>
+          <br>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  <br>
+
 </div>
-<!-- user-form.component.html -->
-<div class="center-content">
-  <mat-card class="mat-card">
-    <br>
-    <h3><strong>EDIT-USER</strong></h3>
-
-    <form [formGroup]="editForm" (ngSubmit)="updateUser()" >
-
-      <mat-form-field class="full-width-input"appearance="fill">
-        <mat-label>Nombre</mat-label>
-        <input
-          matInput
-          autocomplete="off"
-          formControlName="nombre"
-          name="nombre"
-          type="text"
-          id="nombre" required>
-      </mat-form-field>
-
-      <mat-form-field class="full-width-input" appearance="fill">
-        <mat-label>Apellido</mat-label>
-        <input
-          matInput formControlName="apellido"
-          autocomplete="off"
-          name="apellido"
-          type="text"
-          id="apellido" required>
-      </mat-form-field>
-
-      <!-- <mat-form-field class="full-width-input" appearance="fill">
-        <mat-label>Cambiar contraseña</mat-label>
-        <input
-          matInput formControlName="pwd"
-          autocomplete="off"
-          name="pwd"
-          type="password"
-          id="pwd" required>
-      </mat-form-field> -->
-
-      <mat-form-field class="full-width-input" appearance="fill">
-        <mat-label>Dirección</mat-label>
-        <textarea
-          matInput
-          formControlName="direccion"
-          autocomplete="off"
-          name="direccion"
-          type="text"
-          id="direccion" required></textarea>
-      </mat-form-field>
-
-      <div class="radio-group">
-        <strong><span>Change user role</span></strong><br>
-        <mat-radio-group formControlName="rol">
-          <mat-radio-button value="ADMIN">ADMIN</mat-radio-button>
-          <mat-radio-button value="USER">USER</mat-radio-button>
-        </mat-radio-group>
-      </div>
-
-      <div class="user-form">
-        <button mat-raised-button color="warn" (click)="updateUser()" class="full-width-input">Actualizar Usuario</button>
-        <br>
-      </div>
-    </form>
-  </mat-card>
-</div>
-<br>
-
-

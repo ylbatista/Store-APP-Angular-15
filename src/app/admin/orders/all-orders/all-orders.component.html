@@ -36,9 +36,11 @@
       <button routerLink="/admin/dashboard" mat-fab matTooltip="Regresar al Dashboard" color="acent" class="dashboard-icon">
         <mat-icon>dashboard</mat-icon>
       </button>
-      
+
   </div>
 
+  <br>
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
   <br>
 
   <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">

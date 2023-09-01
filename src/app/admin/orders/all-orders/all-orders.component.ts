@@ -38,6 +38,10 @@ export class AllOrdersComponent {
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement!: Orders;
 
+  //para simular la carga en un (mat-progress-bar) cuando llamo a la funcion applyFilter
+  isLoading: boolean = false;
+  isFiltering: boolean = false;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
@@ -121,30 +125,45 @@ export class AllOrdersComponent {
     );
   }
 
-  //TODOS LOS FILTROS
+  /*Funcion para aplicar filtros simulando tiempo de carga con un setTimeout*/
   applyFilters(): void {
-    let filteredOrders = this.allOrders;
 
-    if (this.selectedMonth !== 'Todas') {
-      filteredOrders = filteredOrders.filter(order => {
-        const orderDate = new Date(order.fechaCreacion);
-        return orderDate.getMonth() === this.months.indexOf(this.selectedMonth) - 1;
-      });
-    }
+    this.isLoading = true;
+    console.log('CARGANDO...');
 
-    if (this.selectedYear) {
-      filteredOrders = filteredOrders.filter(order => {
-        const orderDate = new Date(order.fechaCreacion);
-        return orderDate.getFullYear() === this.selectedYear;
-      });
-    }
+    setTimeout(() => {
 
-    if (this.selectedUser && this.selectedUser !== 'Todos') {
-      filteredOrders = filteredOrders.filter(order => {
-        return order.nombre === this.selectedUser;
-      });
-    }
+      let filteredOrders = this.allOrders;
 
-    this.dataSource.data = filteredOrders;
+      //Filtrando por Todos los meses
+      if (this.selectedMonth !== 'Todas') {
+        filteredOrders = filteredOrders.filter(order => {
+          const orderDate = new Date(order.fechaCreacion);
+          return orderDate.getMonth() === this.months.indexOf(this.selectedMonth) - 1;
+        });
+      }
+
+      //Filtrando por Año seleccionado
+      if (this.selectedYear) {
+        filteredOrders = filteredOrders.filter(order => {
+          const orderDate = new Date(order.fechaCreacion);
+          return orderDate.getFullYear() === this.selectedYear;
+        });
+      }
+
+      //Filtrando por Usuario seleccionado
+      if (this.selectedUser && this.selectedUser !== 'Todos') {
+        filteredOrders = filteredOrders.filter(order => {
+          return order.nombre === this.selectedUser;
+        });
+      }
+
+      //Actualizando en el dataSource los datos filtrados
+      this.dataSource.data = filteredOrders;
+      this.isLoading = false;
+      console.log('CARGA FINALIZADA');
+
+    }, 300);
+
   }
 }

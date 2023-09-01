@@ -7,6 +7,7 @@ import { CarService } from './car.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BadgeService } from 'src/app/shared/badge/badge.service';
 import { Router } from '@angular/router';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-buy-car',
@@ -74,7 +75,6 @@ export class BuyCarComponent {
     }, 0);
   }
 
-
   onClickDelete(indice: number): void {
     this.carService.deleteProduct(indice);
 
@@ -117,8 +117,8 @@ export class BuyCarComponent {
         this.badgeService.clearBadgeNotify();
 
         //////snackbar message
-        this.snackBar.open('PAGO REALIZADO', '', {
-          duration: 3000,
+        this.snackBar.open('PAGO REALIZADO $', order.total , {
+          duration: 5000,
           horizontalPosition: 'center'
         });
 

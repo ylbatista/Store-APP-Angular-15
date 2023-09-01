@@ -51,7 +51,7 @@ const routes: Routes = [
   { path:'app-grafic-year', component: GraficYearsComponent },
   { path:'cards-user', component: CardsUserComponent },
 
-  // { path: 'header', component: HeaderComponent },
+  { path: 'header', component: HeaderComponent },
 
 ]
 

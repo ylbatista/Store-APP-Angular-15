@@ -1,8 +1,11 @@
-.center-content {
+  .all {
+    margin: 1%;
+  }
+
+  .center-content {
     display: flex;
     padding-top: auto;
     text-align: center;
-
   }
 
   .mat-card{
@@ -15,7 +18,6 @@
   .full-width-input{
     width: 100%;
     align-items: center;
-
   }
 
   .center-button {

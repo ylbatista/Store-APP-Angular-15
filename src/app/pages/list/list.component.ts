@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Product } from 'src/app/interfaces/product.interface';
 import { ProductService } from 'src/app/services/product.service';
 import { CarService } from '../buy-car/car.service';
@@ -13,8 +12,10 @@ import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
 })
 export class ListComponent implements OnInit {
 
+  private rolUserLogged = localStorage.getItem('rol');
+
   public totalProductsBag: number = 0;
-  showBack: boolean = false;
+  // showBack: boolean = false;
 
   //array productType para solo enviar el (tipo) de cada producto
   productType: string [] = [];
@@ -50,22 +51,36 @@ export class ListComponent implements OnInit {
 
   //ENVIAR PRODUCTO AL CARRITO
   sendData(product: Product): void {
-    this.carService.addNewProduct(product);
-    console.log('ENVIO PRODUCTO AL COMPONENTE CARR',product);
 
-    ///al llamar la funcion addCar incremento el contador en el badgeService
-    this.badgeService.incrementCounter();
+    if(this.rolUserLogged) {
 
-    this.snackBar.open('PRODUCTO AGREGADO AL CARRITO', '',{
-      duration: 3000,
-      horizontalPosition: 'center',
-    });
+      this.carService.addNewProduct(product);
+
+      // /al llamar la funcion addCar incremento el contador en el badgeService
+      this.badgeService.incrementCounter();
+
+      this.snackBar.open('PRODUCTO AGREGADO AL CARRITO', '',{
+        duration: 4000,
+        horizontalPosition: 'center',
+      });
+
+    } else {
+
+      this.snackBar.open('NECESITA ESTAR LOGADO PARA AGREGAR PRODUCTOS AL CARRITO', '',{
+        duration: 5000,
+        horizontalPosition: 'center',
+      });
+    }
   }
+
 
   ngOnInit(): void {
     this.getProductsByPage(0,10000);
     this.selectedPriceRange = 'all';
     // this.selectedProductType = 'All types';
+    this.rolUserLogged = localStorage.getItem('rol');
+    console.log(this.rolUserLogged);
+
   }
 
   getImageUrl(imageName: string){
@@ -101,11 +116,11 @@ export class ListComponent implements OnInit {
     this.getProductsByPage(pageNo, pageSize);
   }
 
-  /*Funcion para aplicar filtros*/
+  /*Funcion para aplicar filtros simulando tiempo de carga con un setTimeout*/
   applyFilters(): void {
 
     this.isLoading = true;
-    console.log('carga empezada');
+    console.log('CARGANDO....');
 
     setTimeout(() => {
 
@@ -138,13 +153,9 @@ export class ListComponent implements OnInit {
         this.filteredProductCount_21 = this.filteredProducts.length;
       }
 
-
-
       this.isLoading = false;
-      console.log('Carga detenida');
+      console.log('CARGA FINALIZADA');
     }, 300);
-
-
 
   }
 

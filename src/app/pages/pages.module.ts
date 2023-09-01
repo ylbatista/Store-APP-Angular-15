@@ -8,9 +8,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material.module';
-import { ShowUserOrdersComponent } from './show-user-orders/show-user-orders.component';
 import { MatSelectModule } from '@angular/material/select';
-import { TotalImportComponent } from '../components/total-import/total-import.component';
 
 @NgModule({
   declarations: [

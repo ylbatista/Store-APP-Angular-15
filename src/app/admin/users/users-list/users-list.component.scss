@@ -1,4 +1,4 @@
-  .all{
+  .all {
     margin: 1%;
   }
 
@@ -6,31 +6,20 @@
     width: 100%;
   }
 
-  .mat-mdc-form-field {
+  .center {
+    width: auto;
+    text-align: center;
+  }
+
+  .buscador {
     font-size: 14px;
     width: 100%;
   }
 
-  td, th {
-    width: 25%;
-  }
-
-///////////////////////////
-  .responsive-table{
-    overflow-x: auto;
-    display: block;
-  }
   .mat-table{
     width: 100%;
     table-layout: auto;
   }
-
-  .mat-cell,
-.mat-header-cell {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 
 /* Asegurarse de que los botones en la columna "actions" sean visibles en pantallas pequeñas */
 .button-container {

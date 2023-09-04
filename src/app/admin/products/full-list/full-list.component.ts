@@ -37,7 +37,7 @@ export class FullListComponent {
    }
 
     ngOnInit(): void {
-      this.getProductsByPage(0, 100);
+      this.getProductsByPage(0, 100000);
       this.route.params.subscribe(params => this.applyFilter(params['event']));
     }
 
@@ -63,7 +63,7 @@ export class FullListComponent {
       this.products = this.products.filter((product) => product.id !== id);
 
       //llamo denuevo al getProductsByPage para actualizar
-      this.getProductsByPage(0, 15);
+      this.getProductsByPage(0, 100000);
 
       /////snackBar para mostrar un mensaje de producto eliminado, se debe importar en el constructor
       this.snackBar.open('Producto eliminado con exito', '',{

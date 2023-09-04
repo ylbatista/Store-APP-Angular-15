@@ -47,6 +47,7 @@ export class AddProductComponent {
     this.previewImageUrl = this.sanitizer.bypassSecurityTrustUrl(url);
   }
 
+  
   productData(){
 
     if(this.productForm.invalid) {

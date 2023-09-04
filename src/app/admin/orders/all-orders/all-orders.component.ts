@@ -24,10 +24,13 @@ import { AllUsers } from 'src/app/interfaces/user.interface';
 export class AllOrdersComponent {
   months: string[] = ['Todas','Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
   years: number[] = [2023, 2024, 2025];
+  days: number[] = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
   users: string [] = [];
+
 
   selectedMonth: string = this.months[0]; // Inicializar en Todas
   selectedYear: number = this.years[0]; // Inicializar con el primer año
+  selectedDay: number = this.days[0]; //
   selectedUser: string = this.users[0]; // Inicializar en Todos
 
   allOrders: Orders[] = [];
@@ -150,6 +153,17 @@ export class AllOrdersComponent {
           return orderDate.getFullYear() === this.selectedYear;
         });
       }
+
+      // //Filtrando por Día seleccionado
+      // if (this.selectedYear) {
+      //   filteredOrders = filteredOrders.filter(order => {
+      //     const orderDate = new Date(order.fechaCreacion);
+      //     return orderDate.getFullDay() === this.selectedDay;
+      //   });
+      // }
+
+
+
 
       //Filtrando por Usuario seleccionado
       if (this.selectedUser && this.selectedUser !== 'Todos') {

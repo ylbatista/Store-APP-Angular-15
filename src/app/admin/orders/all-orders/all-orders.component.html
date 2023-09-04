@@ -43,15 +43,15 @@
   <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
   <br>
 
+  <!-- COMTENIDO TABLA -->
   <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
 
-
     <ng-container  matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-      <th mat-header-cell *matHeaderCellDef>
+      <th class="center" mat-header-cell *matHeaderCellDef>
         {{ column }}
       </th>
 
-      <td mat-cell *matCellDef="let allOrders">
+      <td class="center" mat-cell *matCellDef="let allOrders">
         <span *ngIf="column === 'Id Orden'">{{allOrders['numero']}}</span>
         <span *ngIf="column === 'Creada por'">{{allOrders['nombre']}}</span>
         <span *ngIf="column === 'Fecha de Creación'">{{ allOrders['fechaCreacion'] |  date:'fullDate' }}</span>

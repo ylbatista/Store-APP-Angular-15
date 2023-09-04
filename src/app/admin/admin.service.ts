@@ -23,7 +23,7 @@ export class AdminService {
 
   //haciedo peticion post http y retornando como observable el pago a la api
   productData(formData: FormData): Observable<any>{
-    return this.http.post<Product>(`${this.api_url}/producto/crear`, formData);
+    return this.http.post<any>(`${this.api_url}/producto/crear`, formData);
   }
 
   //DAME TODOS LOS USUARIOS
@@ -39,7 +39,7 @@ export class AdminService {
 
   //UPDATE USER by id
   updateUser( userId: string, user: any ): Observable<any> {
-    const url = `${this.api_url}/api/users/id/${userId}`;
+    const url = `${this.api_url}/api/users/edit/${userId}`;
     return this.http.put(url, user);
   }
 

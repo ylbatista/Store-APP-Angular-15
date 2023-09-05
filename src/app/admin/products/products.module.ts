@@ -13,13 +13,18 @@ import { ProductsComponent } from './products.component';
 
 
 @NgModule({
-  declarations: [
+  exports: [
     ProductsComponent,
-
     AddProductComponent,
     FullListComponent,
     DetailProductComponent,
+  ],
 
+  declarations: [
+    ProductsComponent,
+    AddProductComponent,
+    FullListComponent,
+    DetailProductComponent,
   ],
 
   imports: [

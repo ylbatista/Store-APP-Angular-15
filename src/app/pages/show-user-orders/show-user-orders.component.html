@@ -25,6 +25,14 @@
         </mat-select>
     </div>
 
+    <!-- FILTRANDO POR DIA -->
+    <div style="margin-top: 10px;">
+      <mat-label class="small-label">Filtrar por dia</mat-label>
+      <mat-select class="small-select" [(ngModel)]="selectedDay" (selectionChange)="applyFilters()">
+        <mat-option *ngFor="let day of days" [value]="day">{{ day }}</mat-option>
+        </mat-select>
+    </div>
+
     <button routerLink="/pages/list" mat-fab matTooltip="Regresar a la Lista de Productos" color="acent" class="dashboard-icon">
       <mat-icon>storefront</mat-icon>
     </button>

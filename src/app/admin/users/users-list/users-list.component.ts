@@ -61,7 +61,7 @@ export class UsersListComponent {
       this.dataSource.data = this.users;
 
       /////snackBar para mostrar un mensaje de usuario eliminado, se debe importar en el constructor
-      this.snackBar.open('Usuario eliminado con exito', '',{
+      this.snackBar.open('Usuario eliminado con exito', id,{
         duration: 3000,
         horizontalPosition: 'center',
       })
@@ -70,7 +70,7 @@ export class UsersListComponent {
         console.error('Error al eliminar el usuario:', error);
       }
     );
-  }
+  } 
 
   ///////FILTRO
   applyFilter(event: Event) {

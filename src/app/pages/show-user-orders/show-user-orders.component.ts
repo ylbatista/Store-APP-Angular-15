@@ -22,9 +22,16 @@ export class ShowUserOrdersComponent {
 
   months: string[] = ['Todas','Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
   years: number[] = [2023, 2024, 2025];
+  days: string[] = ['Todos','Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5','Día 6', 'Día 7',
+                   'Día 8', 'Día 9', 'Día 10', 'Día 11', 'Día 12', 'Día 13', 'Día 14', 'Día 15',
+                   'Día 16', 'Día 17', 'Día 18', 'Día 19', 'Día 20', 'Día 21', 'Día 22', 'Día 23',
+                   'Día 24', 'Día 25', 'Día 26', 'Día 27', 'Día 28', 'Día 29', 'Día 30', 'Día 31'];
 
-  selectedMonth: string = this.months[0];
-  selectedYear: number = this.years[0];
+
+
+  selectedMonth: string = this.months[0]; // Inicializar en Todos
+  selectedYear: number = this.years[0];   // Inicializar con el primer año
+  selectedDay: string = this.days[0];     // Inicializar en Todos
 
   idCreador: string[] = [];
 
@@ -65,7 +72,7 @@ export class ShowUserOrdersComponent {
 
     let filteredOrders = this.orders;
 
-
+    //Filtrado por Mes seleccionado
     if (this.selectedMonth !== 'Todas') {
       filteredOrders = filteredOrders.filter(order => {
         const orderDate = new Date(order.fechaCreacion);
@@ -73,10 +80,19 @@ export class ShowUserOrdersComponent {
       });
     }
 
+    //Filtrado por Año seleccionado
     if (this.selectedYear) {
       filteredOrders = filteredOrders.filter(order => {
         const orderDate = new Date(order.fechaCreacion);
         return orderDate.getFullYear() === this.selectedYear;
+      });
+    }
+
+    //Filtrando por Día seleccionado
+    if (this.selectedDay !== 'Todos') {
+      filteredOrders = filteredOrders.filter(order => {
+        const orderDate = new Date(order.fechaCreacion);
+        return orderDate.getDate() === this.days.indexOf(this.selectedDay) - 1;
       });
     }
 

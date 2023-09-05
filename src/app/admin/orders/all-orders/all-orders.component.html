@@ -25,6 +25,14 @@
         </mat-select>
     </div>
 
+    <!-- FILTRANDO POR DIA -->
+    <div style="margin-top: 10px;">
+      <mat-label class="small-label">Filtrar por día</mat-label>
+      <mat-select class="small-select" [(ngModel)]="selectedDay" (selectionChange)="applyFilters()">
+        <mat-option *ngFor="let day of days" [value]="day">{{ day }}</mat-option>
+        </mat-select>
+    </div>
+
     <!-- FILTRANDO POR USUARIO -->
     <div style="margin-top: 10px;">
       <mat-label class="small-label">Filtrar por Nombre</mat-label>
@@ -33,9 +41,9 @@
       </mat-select>
     </div>
 
-      <button routerLink="/admin/dashboard" mat-fab matTooltip="Regresar al Dashboard" color="acent" class="dashboard-icon">
-        <mat-icon>dashboard</mat-icon>
-      </button>
+    <button routerLink="/admin/dashboard" mat-fab matTooltip="Regresar al Dashboard" color="acent" class="dashboard-icon">
+      <mat-icon>dashboard</mat-icon>
+    </button>
 
   </div>
 

@@ -12,12 +12,16 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UsersEditComponent } from './users-edit/users-edit.component';
 
 @NgModule({
-  declarations: [
+  exports: [
     UsersComponent,
-
     UsersListComponent,
     UsersEditComponent,
-
+  ],
+  
+  declarations: [
+    UsersComponent,
+    UsersListComponent,
+    UsersEditComponent,
   ],
 
   imports: [

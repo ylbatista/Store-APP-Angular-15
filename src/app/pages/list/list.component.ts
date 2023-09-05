@@ -46,7 +46,6 @@ export class ListComponent implements OnInit {
     private carService: CarService,
     private badgeService: BadgeService,
     private snackBar: MatSnackBar,
-
   ) {}
 
   //ENVIAR PRODUCTO AL CARRITO

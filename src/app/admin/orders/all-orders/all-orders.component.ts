@@ -24,13 +24,16 @@ import { AllUsers } from 'src/app/interfaces/user.interface';
 export class AllOrdersComponent {
   months: string[] = ['Todas','Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
   years: number[] = [2023, 2024, 2025];
-  days: number[] = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+  days: string[] = ['Todos','Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5','Día 6', 'Día 7',
+                   'Día 8', 'Día 9', 'Día 10', 'Día 11', 'Día 12', 'Día 13', 'Día 14', 'Día 15',
+                   'Día 16', 'Día 17', 'Día 18', 'Día 19', 'Día 20', 'Día 21', 'Día 22', 'Día 23',
+                   'Día 24', 'Día 25', 'Día 26', 'Día 27', 'Día 28', 'Día 29', 'Día 30', 'Día 31'];
   users: string [] = [];
 
 
   selectedMonth: string = this.months[0]; // Inicializar en Todas
   selectedYear: number = this.years[0]; // Inicializar con el primer año
-  selectedDay: number = this.days[0]; //
+  selectedDay: string = this.days[0]; // Inicializar en Todos
   selectedUser: string = this.users[0]; // Inicializar en Todos
 
   allOrders: Orders[] = [];
@@ -154,16 +157,13 @@ export class AllOrdersComponent {
         });
       }
 
-      // //Filtrando por Día seleccionado
-      // if (this.selectedYear) {
-      //   filteredOrders = filteredOrders.filter(order => {
-      //     const orderDate = new Date(order.fechaCreacion);
-      //     return orderDate.getFullDay() === this.selectedDay;
-      //   });
-      // }
-
-
-
+      //Filtrando por Día seleccionado
+      if (this.selectedDay !== 'Todos') {
+        filteredOrders = filteredOrders.filter(order => {
+          const orderDate = new Date(order.fechaCreacion);
+          return orderDate.getDate() === this.days.indexOf(this.selectedDay) - 1;
+        });
+      }
 
       //Filtrando por Usuario seleccionado
       if (this.selectedUser && this.selectedUser !== 'Todos') {

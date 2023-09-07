@@ -46,10 +46,10 @@ const routes: Routes = [
 
   { path: 'all-orders', component: AllOrdersComponent },
 
-  { path: 'month-sales-grafic', component: MonthSalesGraficComponent },
-  { path: 'grafics', component: GraficsComponent },
-  { path:'app-grafic-year', component: GraficYearsComponent },
-  { path:'cards-user', component: CardsUserComponent },
+  // { path: 'month-sales-grafic', component: MonthSalesGraficComponent },
+  // { path: 'grafics', component: GraficsComponent },
+  // { path:'app-grafic-year', component: GraficYearsComponent },
+  // { path:'cards-user', component: CardsUserComponent },
 
   { path: 'header', component: HeaderComponent },
 

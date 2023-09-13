@@ -1,9 +1,5 @@
 <div class="all">
-
-  <!-- <p>list works!</p> -->
-
   <h2 style="margin: 10px; text-align: center;">LISTA DE PRODUCTOS</h2>
-
 
   <!-- FILTRO -->
   <div class="filter-container">
@@ -16,11 +12,9 @@
           <mat-option *ngFor="let tipo of productType" [value]="tipo">{{ tipo }}</mat-option>
         </mat-select>
       </div>
-      <!-- {{selectedProductType}} -->
     </div>
 
     <!-- FILTRANDO PRECIOS CON RADIO-BUTTON -->
-
     <div style="margin-top: 10px;">
       <mat-label class="small-label"> Filtro por rango de precio</mat-label> <br>
       <mat-radio-group [(ngModel)]="selectedPriceRange" (change)="applyFilters()">
@@ -30,7 +24,6 @@
         <mat-radio-button color="warn" value="11-20">$ 11 - 20 ({{ filteredProductCount11_20 }} )</mat-radio-button>
         <mat-radio-button color="warn" value="21+">Más de $ 21 ({{ filteredProductCount_21 }} )</mat-radio-button>
       </mat-radio-group>
-      <!-- {{selectedPriceRange}} -->
     </div>
 
     <button routerLink="/home" mat-fab matTooltip="Regresar al Home" color="acent" class="home-icon">
@@ -66,9 +59,8 @@
             (click)="sendData(product)"
             [disabled]="product.cantidad === 0"> AGREGAR AL CARRITO
           </button>
-
+          
         </div>
-
       </div>
     </div>
   </div>

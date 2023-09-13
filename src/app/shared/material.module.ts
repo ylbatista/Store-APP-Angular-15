@@ -50,9 +50,6 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatExpansionModule,
     MatTabsModule,
 
-
-
-
     HttpClientModule,
 
     //forms
@@ -93,7 +90,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     //forms
     FormsModule,
     ReactiveFormsModule,
-    
+
     MatProgressBarModule
 
   ]

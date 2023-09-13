@@ -15,9 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
     BuyCarComponent,
     ListComponent,
     PNotFoundComponent,
-
   ],
-
 
   imports: [
     CommonModule,
@@ -31,7 +29,6 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     ReactiveFormsModule,
     PagesRoutingModule,
-
   ],
 
 })

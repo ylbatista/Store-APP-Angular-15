@@ -7,7 +7,6 @@ import { CarService } from './car.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BadgeService } from 'src/app/shared/badge/badge.service';
 import { Router } from '@angular/router';
-import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-buy-car',

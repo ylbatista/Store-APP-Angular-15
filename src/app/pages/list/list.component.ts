@@ -15,8 +15,6 @@ export class ListComponent implements OnInit {
   private rolUserLogged = localStorage.getItem('rol');
 
   public totalProductsBag: number = 0;
-  // showBack: boolean = false;
-
   //array productType para solo enviar el (tipo) de cada producto
   productType: string [] = [];
 

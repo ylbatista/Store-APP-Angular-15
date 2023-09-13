@@ -1,86 +1,79 @@
-<p>buy-car works!</p>
 
 <div class="all">
 
-<h3 style="margin: 10px; text-align: center;">LISTA DE COMPRA DEL CARRITO</h3>
+  <h3 style="margin: 10px; text-align: center;">LISTA DE COMPRA DEL CARRITO</h3>
 
-<mat-card class="margin-center">
-  <table>
-    <thead>
-      <tr>
-        <!-- <th>Id</th> -->
-        <th class="center">Product Name</th>
-        <th class="center">Description</th>
-        <th class="center">In Store...</th>
+  <mat-card class="margin-center">
+    <table>
+      <thead>
+        <tr>
+          <!-- <th>Id</th> -->
+          <th class="center">Product Name</th>
+          <th class="center">Description</th>
+          <th class="center">In Store...</th>
 
-        <th class="center"> To buy...</th>
+          <th class="center"> To buy...</th>
 
-        <th class="center">Price product</th>
+          <th class="center">Price product</th>
 
-        <th class="center">Price/SelectCant</th>
+          <th class="center">Price/SelectCant</th>
 
-        <th class="center">Action</th>
-      </tr>
-    </thead>
+          <th class="center">Action</th>
+        </tr>
+      </thead>
 
-    <tbody >
-      <tr *ngFor="let product of products, let indice = index;">
-        <!-- <td>{{product.id}}</td> -->
-        <td class="center">{{product.nombre}}</td>
-        <td class="center" matTooltip="{{product.descripcion}}">{{product.descripcion}}</td>
-        <td class="center">{{product.cantidad}}</td>
+      <tbody >
+        <tr *ngFor="let product of products, let indice = index;">
+          <!-- <td>{{product.id}}</td> -->
+          <td class="center">{{product.nombre}}</td>
+          <td class="center" matTooltip="{{product.descripcion}}">{{product.descripcion}}</td>
+          <td class="center">{{product.cantidad}}</td>
 
-        <td class="center">
-          <input class="small-input"
-          name="selectCant" type="number"
-          placeholder="select cant" [(ngModel)]="product.selectCant"
-          (keyup)="updateTotal()"
-          matTooltip="Seleccione la Cantidad del Producto">
-          <!-- test {{selectCant}} -->
+          <td class="center">
+            <input class="small-input"
+            name="selectCant" type="number"
+            placeholder="select cant" [(ngModel)]="product.selectCant"
+            (keyup)="updateTotal()"
+            matTooltip="Seleccione la Cantidad del Producto">
+            <!-- test {{selectCant}} -->
+          </td>
+
+          <td class="center">{{product.precio | currency}}</td>
+          <td class="center">{{product.cantXproduct | currency}}</td>
+        <td>
+          <!-- <mat-icon color="primary" matTooltip="Detalle del producto">details</mat-icon> -->
+          <mat-icon color="warn" (click)="onClickDelete(indice)" matTooltip="Eliminar Producto">delete</mat-icon>
         </td>
+        </tr>
+      </tbody>
+    </table>
 
-        <td class="center">{{product.precio | currency}}</td>
-        <td class="center">{{product.cantXproduct | currency}}</td>
-      <td>
-        <!-- <mat-icon color="primary" matTooltip="Detalle del producto">details</mat-icon> -->
-        <mat-icon color="warn" (click)="onClickDelete(indice)" matTooltip="Eliminar Producto">delete</mat-icon>
-      </td>
-      </tr>
-    </tbody>
-  </table>
+    <div>
+      <!-- **********IMPORTE TOTAL DE LA LISTA DE PRODUCTOS**********-->
+      <br>
+      <p><strong>TOTAL TO PAY:{{ total | currency }}</strong></p>
 
-  <div>
-    <!-- **********IMPORTE TOTAL DE LA LISTA DE PRODUCTOS**********-->
-    <!-- <app-total-import></app-total-import> -->
-  </div>
+      <div class="button-container">
+        <button
+          mat-raised-button
+          color="warn"
+          class="center-button"
+          type="submit"
+          (click)="payProduct()">Validar Compra
+        </button>
 
-  <div>
-    <!-- **********IMPORTE TOTAL DE LA LISTA DE PRODUCTOS**********-->
-    <br>
-    <p><strong>TOTAL TO PAY:{{ total | currency }}</strong></p>
+        <button
+          mat-raised-button
+          color="primary"
+          class="center-button"
+          type="submit"
+          (click)="addMoreProduct()">Agregar Produtos
+        </button>
+      </div>
 
-    <div class="button-container">
-      <button
-        mat-raised-button
-        color="warn"
-        class="center-button"
-        type="submit"
-        (click)="payProduct()">Validar Compra
-      </button>
-
-      <button
-        mat-raised-button
-        color="primary"
-        class="center-button"
-        type="submit"
-        (click)="addMoreProduct()">Agregar Produtos
-      </button>
     </div>
-
-  </div>
-
-  <br>
-</mat-card>
+    <br>
+  </mat-card>
 
 </div>
 

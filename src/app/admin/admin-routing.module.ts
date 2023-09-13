@@ -17,12 +17,14 @@ import { UsersComponent } from './users/users.component';
 import { UsersEditComponent } from './users/users-edit/users-edit.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AllOrdersComponent } from './orders/all-orders/all-orders.component';
-import { MonthSalesGraficComponent } from './dashboard/dashboard-components/month-sales-grafic/month-sales-grafic.component';
-import { GraficsComponent } from './dashboard/dashboard-components/grafics/grafics.component';
+
 import { HeaderComponent } from '../layout/header/header.component';
 import { RegisterComponent } from '../auth/register/register.component';
+
 import { CardsUserComponent } from './dashboard/dashboard-components/cards-user/cards-user.component';
 import { GraficYearsComponent } from './dashboard/dashboard-components/grafics-year/grafic-year.component';
+import { MonthSalesGraficComponent } from './dashboard/dashboard-components/month-sales-grafic/month-sales-grafic.component';
+import { GraficsComponent } from './dashboard/dashboard-components/grafics/grafics.component';
 
 
 //ORDERS

@@ -45,8 +45,6 @@ export class ShowUserOrdersComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-
-
   constructor(
     private ordersService: OrdersService,
   ){}
@@ -68,7 +66,6 @@ export class ShowUserOrdersComponent {
 
   //TODOS LOS FILTROS
   applyFilters(): void {
-    //const loggedUserId = '';
 
     let filteredOrders = this.orders;
 
